@@ -8,5 +8,4 @@ Homestead.json
 /.idea
 composer.lock
 /bower_components
-/bootstrap/cache
 /public/images/upload
