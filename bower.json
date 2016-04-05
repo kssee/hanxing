@@ -1,0 +1,35 @@
+{
+  "name": "hanxing",
+  "description": "Han Xing College",
+  "main": "",
+  "authors": [
+    "Rex See <rex@serbapay.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css": "~3.3.4",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "font-awesome": "~4.5.0",
+    "footable": "~2.0.3",
+    "jquery": "~2.2.0",
+    "jquery-colorbox": "~1.6.3",
+    "jquery-validation": "~1.14.0",
+    "normalize-css": "~3.0.3",
+    "metisMenu": "~2.2.0",
+    "morris.js": "morrisjs#~0.5.1",
+    "nprogress": "~0.2.0",
+    "ckeditor": "~4.5.6",
+    "jquery-confirm2": "craftpip/jquery-confirm#~2.5.0",
+    "notie": "*"
+  }
+}
