@@ -124,11 +124,16 @@ h1
 .highlight-box
   padding: 10px 10px 0
   margin: 10px 5px
-  .item img
-    padding: 5px 0
-    &:hover
-      opacity: 0.9
-      filter: alpha(opacity=90) /* For IE8 and earlier */
+  .item
+    padding: 15px
+    height: 310px
+    max-width: 300px
+    margin: 0 auto
+    img
+      padding: 5px 0
+      &:hover
+        opacity: 0.9
+        filter: alpha(opacity=90) /* For IE8 and earlier */
   h2
     margin-top: 0
     font-family: $style-font
@@ -136,20 +141,19 @@ h1
     color: $dark-gray-color-2
     font-size: 1.1em
   .col-sm-3
-    padding: 15px
-    margin: 0 9px
+    padding: 5px 5px 10px
 
-.highlight-box-light .col-sm-3
+.highlight-box-light .item
   background-color: #eee
 
-.highlight-box-dark
-  .col-sm-3
-    background-color: $dark-gray-color-2
-    &:hover
-      opacity: 0.9
-      filter: alpha(opacity=90) /* For IE8 and earlier */
-      +transition(.3s)
-      cursor: pointer
+.highlight-box-dark .item
+  background-color: $dark-gray-color-2
+  height: 250px
+  &:hover
+    opacity: 0.9
+    filter: alpha(opacity=90) /* For IE8 and earlier */
+    +transition(.3s)
+    cursor: pointer
   img
     border: 5px solid #fff
     padding: 0 !important
@@ -453,3 +457,8 @@ h1
     top: 10px
   #nav-logo
     width: 130px !important
+  .follow-bar .col-sm-4
+    border-right: none
+    border-bottom: 1px dashed $dark-gray-color
+    &:last-child
+      border-bottom: none
