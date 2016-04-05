@@ -4,7 +4,10 @@
 @stop
 
 @section('content')
-    <img src="{{asset('images/banner.png')}}" class="responsive-image"/><br/>
+    <img src="{{asset('images/banner.png')}}" class="responsive-image page-banner hidden-xs"/>
+
+    @include('partials.breadcrumb')
+
     <h1>Pre-University Programmes</h1>
     <br/>
     <p>In an increasingly competitive world, you need an edge to succeed. Whether your ambition is to be a cardiologist, world-renowned architect or prominent lawyer, it is important to have the right
@@ -29,10 +32,10 @@
             <div class="highlight-box-special row">
                 <div class="col-sm-3">
                     <div class="item-container">
-                        <img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/>
+                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
 
                         <div class="content">
-                            <h4>INNOVATIVE LEARNING</h4>
+                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
 
                             <p>Gain your edge through an industry-focused curriculum and the latest learning innovations.</p>
                             <a href=""> Find out more ></a>
@@ -42,10 +45,10 @@
 
                 <div class="col-sm-3">
                     <div class="item-container">
-                        <img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/>
+                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
 
                         <div class="content">
-                            <h4>INNOVATIVE LEARNING</h4>
+                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
 
                             <p>Gain your edge  the latest learning innovations.</p>
                             <a href=""> Find out more ></a>
@@ -55,10 +58,10 @@
 
                 <div class="col-sm-3">
                     <div class="item-container">
-                        <img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/>
+                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
 
                         <div class="content">
-                            <h4>INNOVATIVE LEARNING</h4>
+                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
 
                             <p>Gain your edge through .</p>
                             <a href=""> Find out more ></a>
@@ -68,10 +71,10 @@
 
                 <div class="col-sm-3">
                     <div class="item-container">
-                        <img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/>
+                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
 
                         <div class="content">
-                            <h4>INNOVATIVE LEARNING</h4>
+                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
 
                             <p>Gain your edge through an industry-focused curriculum and the latest learning innovations.</p>
                             <a href=""> Find out more ></a>

@@ -5,21 +5,20 @@
 
 @section('content')
     @include('flash::message')
-
     <div class="container-fluid">
         <div class="highlight-box highlight-box-light row">
             <div class="col-sm-3">
                 <div class="item">
                     <h2>Title</h2>
-                    <a href=""><img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/></a>
+                    <a href="" class="hidden-xs"><img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/></a>
 
-                    <p>Our Foundation Programme offers tailored pathways, in Science or Business, to our undergraduate degree programmes degree programmes....</p>
+                    <p>Our Foundation Programme offers tailored pathways, in Science or Business, to our undergraduate</p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="item">
                     <h2>Title</h2>
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <a href="" class="hidden-xs"><img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/></a>
 
                     <p>Our career-focused degrees include business, finance, built environment and engineering specialisms.</p>
                 </div>
@@ -27,7 +26,7 @@
             <div class="col-sm-3">
                 <div class="item">
                     <h2>Title</h2>
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <a href="" class="hidden-xs"><img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/></a>
 
                     <p>Our professionally relevant Masters are designed to meet the demands and economic drivers of the world today.</p>
                 </div>
@@ -35,7 +34,7 @@
             <div class="col-sm-3">
                 <div class="item">
                     <h2>Title</h2>
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <a href="" class="hidden-xs"><img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/></a>
 
                     <p>Our professionally relevant Masters are designed to meet the demands and economic drivers of the world today.</p>
                 </div>
@@ -73,7 +72,7 @@
         <div class="highlight-box highlight-box-dark row">
             <div class="col-sm-3">
                 <div class="item">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
 
                     <h2>Title</h2>
                     <span>text 123</span>
@@ -81,7 +80,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="item">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
 
                     <h2>Title</h2>
                     <span>text 123</span>
@@ -89,7 +88,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="item">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
 
                     <h2>Title</h2>
                     <span>text 123</span>
@@ -97,7 +96,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="item">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image"/>
+                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
 
                     <h2>Title</h2>
                     <span>text 123</span>

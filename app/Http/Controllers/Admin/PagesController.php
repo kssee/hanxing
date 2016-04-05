@@ -121,8 +121,6 @@
 			$page->page_content = $request->page_content;
 			$page->cre_by       = auth()->user()->name;
 			$page->upd_by       = auth()->user()->name;
-			$page->created_at   = Carbon::now();
-			$page->updated_at   = Carbon::now();
 			$page->save();
 
 			Notie::success();
@@ -175,7 +173,6 @@
 			$page->category     = $request->category;
 			$page->page_content = $request->page_content;
 			$page->upd_by       = auth()->user()->name;
-			$page->updated_at   = Carbon::now();
 			$page->save();
 
 			Notie::success('Updated');

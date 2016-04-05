@@ -80,6 +80,21 @@
 				Route::get('pages/{pages}/destroy', ['as' => 'page.destroy', 'uses' => 'Admin\PagesController@destroy']);
 
 
+
+				//Menu management
+				Route::resource('menu', 'Admin\MenuController', [
+					'except' => ['show','destroy'],
+					'names'  => [
+						'index'   => 'menu.index',
+						'create'  => 'menu.create',
+						'store'   => 'menu.store',
+						'edit'    => 'menu.edit',
+						'update'  => 'menu.update',
+					]
+				]);
+				Route::get('menu/{menu}/destroy', ['as' => 'menu.destroy', 'uses' => 'Admin\MenuController@destroy']);
+
+
 				//Banner management
 				Route::resource('banner', 'Admin\BannersController', [
 					'except' => ['show','destroy'],
