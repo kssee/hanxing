@@ -914,7 +914,7 @@ h1 {
   color: #fff;
   max-width: 500px;
   position: absolute;
-  bottom: 0;
+  bottom: 15px;
   left: 45%;
   right: 15%; }
   .carousel .carousel-caption h1, .carousel .carousel-caption h3 {
