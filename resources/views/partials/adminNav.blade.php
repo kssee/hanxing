@@ -32,6 +32,7 @@
 
                 {!! navIconLinkWithPermission('admin_pages','admin.page.index','fa-info-circle',trans('custom.pages')) !!}
                 {!! navIconLinkWithPermission('admin_menu','admin.menu.index','fa-users',trans('custom.menu')) !!}
+                {!! navIconLinkWithPermission('admin_banner','admin.banner.index','fa-users',trans('custom.banners')) !!}
                 {!! navIconLinkWithPermission('admin_users','admin.user.index','fa-users',trans('custom.users')) !!}
 
                 @if(auth()->user()->hasRole(env('SUPER_ADMIN_ROLE_NAME')) || auth()->user()->can('admin_authorization'))

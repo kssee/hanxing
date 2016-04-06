@@ -34,7 +34,7 @@
 		'role_group'               => 'Roles / Groups',
 		'pages'                    => 'Pages',
 		'menu'                     => 'Menu',
-		''                         => '',
+		'banners'                  => 'Banners',
 		''                         => '',
 		''                         => '',
 
@@ -73,6 +73,8 @@
 		'active_target'            => 'Active Target',
 		'layer'                    => 'Layer',
 		'order'                    => 'Order',
+		'image'                    => 'Image',
+		'url'                      => 'URL',
 		''                         => '',
 
 		'user_list_title'          => 'Users',
@@ -93,6 +95,9 @@
 		'page_list_title'          => 'Pages',
 		'page_add_title'           => 'Add New Page',
 		'page_edit_title'          => 'Edit Page',
+		'banner_list_title'        => 'Banners',
+		'banner_add_title'         => 'Add New Banner',
+		'banner_edit_title'        => 'Edit Banner',
 		''                         => '',
 		''                         => '',
 		''                         => '',

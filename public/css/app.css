@@ -916,33 +916,37 @@ h1 {
   left: 45%;
   right: 15%; }
   .carousel .carousel-caption h1, .carousel .carousel-caption h3 {
+    font-weight: 300;
     padding-top: 0;
     margin-top: 0;
     text-align: left; }
-  .carousel .carousel-caption span {
+  .carousel .carousel-caption a {
     background-color: #b8ce00;
     font-weight: bold;
     padding: 5px 8px;
     font-family: "Oswald", sans-serif;
-    float: right; }
-  .carousel .carousel-caption:hover {
-    background-color: rgba(0, 0, 0, 0.45);
-    cursor: pointer; }
+    float: right;
+    color: #fff; }
+    .carousel .carousel-caption a:hover {
+      color: #000; }
 
 .carousel .carousel-caption-mobile {
   background-color: #696969;
-  padding: 10px 15px;
+  padding: 5px 10px;
   color: #fff; }
   .carousel .carousel-caption-mobile h1, .carousel .carousel-caption-mobile h2 {
     padding-top: 0;
     margin-top: 0;
     text-align: left; }
-  .carousel .carousel-caption-mobile span {
+  .carousel .carousel-caption-mobile a {
     background-color: #b8ce00;
     font-weight: bold;
     padding: 5px 8px;
     font-family: "Oswald", sans-serif;
-    float: right; }
+    float: right;
+    color: #fff; }
+    .carousel .carousel-caption-mobile a:hover {
+      color: #000; }
 
 .quick-link-bar {
   background-color: #eee;
@@ -1125,7 +1129,15 @@ h1 {
   .quick-link-bar {
     text-align: center; }
   .highlight-box-special .item-container .content p {
-    height: auto; } }
+    height: auto; }
+  .highlight-box {
+    padding: 0;
+    margin: 0; }
+  .item {
+    padding: 15px;
+    margin: 0 auto; }
+  p {
+    font-size: 1em; } }
 
 /*# sourceMappingURL=app.css.map */
 

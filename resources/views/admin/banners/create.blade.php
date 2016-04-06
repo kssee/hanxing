@@ -6,9 +6,9 @@
     @section('content')
             @include('errors.list')
 
-            {!! Form::open(['url'=>route('admin.page.store'),'class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['url'=>route('admin.banner.store'),'class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
 
-            @include('admin.pages.form',['type'=>'create'])
+            @include('admin.banners.form',['type'=>'create'])
 
             {!! Form::close() !!}
     @stop

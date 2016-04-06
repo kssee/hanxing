@@ -28,9 +28,9 @@
                             <i class="fa fa-circle fa-lg color-danger"></i>&nbsp;
                         @endif
 
-                        {!! iconLinkWithPermission('admin_page','admin.page.edit','fa-pencil-square-o',trans('custom.edit'),['pages'=>$entry->id]) !!}
+                        {!! iconLinkWithPermission('admin_pages','admin.page.edit','fa-pencil-square-o',trans('custom.edit'),['pages'=>$entry->id]) !!}
                         @if(!$entry->default)
-                            {!! iconLinkWithPermission('admin_page','admin.page.destroy','fa-trash color-danger',trans('custom.delete'),['pages'=>$entry->id],[],true) !!}
+                            {!! iconLinkWithPermission('admin_pages','admin.page.destroy','fa-trash color-danger',trans('custom.delete'),['pages'=>$entry->id],[],true) !!}
                         @endif
                     </td>
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>

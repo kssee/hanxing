@@ -12,9 +12,9 @@
                 <th width="20px"></th>
                 <th width="80px"></th>
                 <th width="150px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
-                <th>{!!sortingLink(trans('custom.slug'),'b')!!}</th>
-                <th>{!!sortingLink(trans('custom.title'),'c')!!}</th>
-                <th>{{trans('custom.created_by')}}</th>
+                <th>{!!sortingLink(trans('custom.title'),'b')!!}</th>
+                <th>{{trans('custom.url')}}</th>
+                <th width="30%">{{trans('custom.image')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -28,15 +28,15 @@
                             <i class="fa fa-circle fa-lg color-danger"></i>&nbsp;
                         @endif
 
-                        {!! iconLinkWithPermission('admin_page','admin.page.edit','fa-pencil-square-o',trans('custom.edit'),['pages'=>$entry->id]) !!}
+                        {!! iconLinkWithPermission('admin_banners','admin.banner.edit','fa-pencil-square-o',trans('custom.edit'),['banners'=>$entry->id]) !!}
                         @if(!$entry->default)
-                            {!! iconLinkWithPermission('admin_page','admin.page.destroy','fa-trash color-danger',trans('custom.delete'),['pages'=>$entry->id],[],true) !!}
+                            {!! iconLinkWithPermission('admin_banners','admin.banner.destroy','fa-trash color-danger',trans('custom.delete'),['pages'=>$entry->id],[],true) !!}
                         @endif
                     </td>
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>
-                    <td>{{ $entry->slug }}</td>
                     <td>{{ is_null($entry->title)?"-":$entry->title }}</td>
-                    <td>{{ $entry->cre_by }}</td>
+                    <td>{{ is_null($entry->url)?"-":$entry->url }}</td>
+                    <td><img src="{{ asset($entry->path) }}" class="responsive-image" /> </td>
                 </tr>
             @endforeach
             </tbody>

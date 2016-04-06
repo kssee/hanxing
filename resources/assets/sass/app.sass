@@ -260,32 +260,36 @@ h1
     left: 45%
     right: 15%
     h1, h3
+      font-weight: 300
       padding-top: 0
       margin-top: 0
       text-align: left
-    span
+    a
       background-color: $main-color
       font-weight: bold
       padding: 5px 8px
       font-family: $style-font
       float: right
-    &:hover
-      background-color: rgba(0, 0, 0, .45)
-      cursor: pointer
+      color: #fff
+      &:hover
+        color: #000
   .carousel-caption-mobile
     background-color: $dark-gray-color
-    padding: 10px 15px
+    padding: 5px 10px
     color: #fff
     h1, h2
       padding-top: 0
       margin-top: 0
       text-align: left
-    span
+    a
       background-color: $main-color
       font-weight: bold
       padding: 5px 8px
       font-family: $style-font
       float: right
+      color: #fff
+      &:hover
+        color: #000
 
 // quick link bar
 .quick-link-bar
@@ -484,3 +488,11 @@ h1
     text-align: center
   .highlight-box-special .item-container .content p
     height: auto
+  .highlight-box
+    padding: 0
+    margin: 0
+  .item
+    padding: 15px
+    margin: 0 auto
+  p
+    font-size: 1em
