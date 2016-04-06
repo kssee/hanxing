@@ -9,3 +9,4 @@ Homestead.json
 composer.lock
 /bower_components
 /public/images/upload
+/public/images/banners
