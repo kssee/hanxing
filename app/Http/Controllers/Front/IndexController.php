@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $banners = Banners::where('published',1)->orderBy('created_at','DESC')->get();
+        $banners = Banners::where('published',1)->orderBy('created_at','DESC')->limit(5)->get();
 	    return view('front.index',compact('banners'));
     }
 }
