@@ -1,10 +1,12 @@
 @if(count($banners))
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            @foreach($banners as $key=>$entry)
-                <li data-target="#myCarousel" data-slide-to="{{$key}}" {!! $key == 0 ? 'class="active"' : '' !!}></li>
-            @endforeach
-        </ol>
+        @if(count($banners) > 1)
+            <ol class="carousel-indicators">
+                @foreach($banners as $key=>$entry)
+                    <li data-target="#myCarousel" data-slide-to="{{$key}}" {!! $key == 0 ? 'class="active"' : '' !!}></li>
+                @endforeach
+            </ol>
+        @endif
 
         <div class="carousel-inner">
             @foreach($banners as $key=>$entry)
@@ -35,12 +37,15 @@
                 </div>
             @endforeach
         </div>
-        <a class="left carousel-control hidden-xs" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control hidden-xs" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
+
+        @if(count($banners) > 1)
+            <a class="left carousel-control hidden-xs" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control hidden-xs" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        @endif
     </div>
 @endif
 
