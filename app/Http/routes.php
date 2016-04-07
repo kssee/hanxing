@@ -126,13 +126,11 @@
 		});
 
 
-
-
-
 		// Front Site
 		Route::get('/', ['as' => 'index', 'uses' => 'Front\IndexController@index']);
 		Route::get('activity/{type}', ['as' => 'newsEvents', 'uses' => 'Front\NewsEventsController@index'])->where('type','news|events');
+		Route::get('contact-us', ['as' => 'contactUs', 'uses' => 'Front\ContactUsController@index']);
+		Route::post('contact-us', ['as' => 'sendContact', 'uses' => 'Front\ContactUsController@sendMail']);
 		Route::get('{slug}', ['as' => 'pages', 'uses' => 'Front\PagesController@index']);
-
 
 	});

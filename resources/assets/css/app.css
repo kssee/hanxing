@@ -461,6 +461,18 @@ h1 {
       color: #b8ce00;
       cursor: pointer; }
 
+.contact-info-box .header {
+  background-color: #625c54;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px; }
+
+.contact-info-box .content {
+  background-color: #b8ce00;
+  padding: 10px; }
+
 .carousel .carousel-control {
   width: 5%; }
 

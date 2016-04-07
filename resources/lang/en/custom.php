@@ -4,6 +4,7 @@
 
 
 		'login'                    => 'Login',
+		'submit'                   => 'Submit',
 		'form_submitting_message'  => 'Processing...',
 		'logout'                   => 'Logout',
 		'admin_site_title'         => config('system_info')->name . ' Admin Panel',
@@ -25,6 +26,9 @@
 		'published'                => 'Published',
 		'publish'                  => 'Publish',
 		'pending'                  => 'Pending',
+		'successful'               => 'Successful',
+		'contact_success_txt'      => 'Thank you, we will come back to you shortly.',
+		'need_help_txt'            => 'Have an enquiry? Let us know about it and we will be happy to assist you.',
 		''                         => '',
 
 		'dashboard'                => 'Dashboard',
@@ -35,7 +39,7 @@
 		'pages'                    => 'Pages',
 		'menu'                     => 'Menu',
 		'banners'                  => 'Banners',
-		''                         => '',
+		'contact_us'               => 'Contact Us',
 		''                         => '',
 
 
@@ -75,6 +79,8 @@
 		'order'                    => 'Order',
 		'image'                    => 'Image',
 		'url'                      => 'URL',
+		'enquiry'                  => 'Enquiry',
+		'nature'                  => 'Nature',
 		''                         => '',
 
 		'user_list_title'          => 'Users',
