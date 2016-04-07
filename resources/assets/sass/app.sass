@@ -38,6 +38,14 @@ h1
   color: $main-color
   font-size: .9em
 
+.calendar-txt
+  display: block
+  text-align: center
+  font-size: .45em
+  padding-top: 1.8em
+  color: $dark-gray-color-2
+  line-height: .95em
+
 // top bar nav
 #my-nav,
 #my-nav ul,
@@ -141,39 +149,45 @@ h1
       &:hover
         opacity: 0.9
         filter: alpha(opacity=90) /* For IE8 and earlier */
-  h2
+  .item-green
+    background-color: $main-color
+    padding-top: 120px
+    text-align: right
+    &:hover
+      background-color: $dark-main-color
+      cursor: pointer
+  h2, h3
     margin-top: 0
     font-family: $style-font
+  h3
+    padding-top: 5px
+    font-size: 1.2em
   p
     color: $dark-gray-color-2
-    font-size: 1.1em
   .col-sm-3
     padding: 5px 5px 10px
-
-.highlight-box-light .item
-  background-color: #eee
-
-.highlight-box-dark .item
-  background-color: $dark-gray-color-2
-  &:hover
-    opacity: 0.9
-    filter: alpha(opacity=90) /* For IE8 and earlier */
-    +transition(.3s)
-    cursor: pointer
-  img
-    border: 5px solid #fff
-    padding: 0 !important
-  h2
-    color: #fff
-    margin-top: 10px
-    margin-bottom: 0
-    text-transform: uppercase
-  span
-    color: $main-color
-    font-size: 1.2em
+  .item-light
+    background-color: #eee
+  .item-dark
+    background-color: $dark-gray-color-2
+    &:hover
+      opacity: 0.9
+      filter: alpha(opacity=90) /* For IE8 and earlier */
+      +transition(.3s)
+    img
+      border: 5px solid #fff
+      padding: 0 !important
+    h2
+      color: #fff
+      margin-top: 10px
+      margin-bottom: 0
+      text-transform: uppercase
+    span
+      color: $main-color
+      font-size: 1.2em
 
 
-.highlight-box-special
+.highlight-box-black
   .col-sm-3
     padding: 0 5px
   .item-container
@@ -209,7 +223,54 @@ h1
     &:hover a
       color: $main-color
 
+.news-bar
+  background-color: #dfdfdf
+  padding: 20px 0
+  h2, h3
+    font-family: $style-font
+  h2
+    color: $dark-gray-color-2
+    margin-top: 0
+  h3
+    color: $dark-gray-color
+    font-size: 28pt
+    font-weight: 300
+  h4
+    font-weight: bold
+    color: $dark-gray-color
+    padding: 10px 0
+  a:hover
+    color: $dark-main-color
+  .news-bar-table tr td
+    padding: 5px
+.calender-sm-box
+  width: 40px
+  height: 45px
+  background: url("/images/calender-small.png") no-repeat 0 0
+  background-size: 40px
+  text-align: center
+  color: #fff
+  font-weight: bold
+  font-family: $style-font
+  .month
+    font-size: .75em
+    text-transform: uppercase
+    padding-top: 1px
+  .day
+    padding-top: 2px
+    font-size: 1.3em
+.news-dash-border
+  border-right: 1px dashed $dark-gray-color
 
+.btn-more
+  border: none
+  border-radius: 0
+  background-color: $dark-gray-color-2
+  color: #ffffff
+  font-weight: bold
+  &:hover
+    background-color: $main-color
+    color: #ffffff !important
 
 .follow-bar
   background-color: #eee
@@ -496,5 +557,13 @@ h1
   .item
     padding: 15px
     margin: 0 auto
+  .item-green
+    padding-top: 10px !important
+    text-align: left !important
   p
     font-size: 1em
+  .news-dash-border
+    border-right: none
+    border-bottom: 1px dashed $dark-gray-color
+    padding-bottom: 10px
+    margin-bottom: 10px

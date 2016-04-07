@@ -29,7 +29,7 @@
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="highlight-box-special row">
+            <div class="highlight-box-black row">
                 <div class="col-sm-3">
                     <div class="item-container">
                         <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>

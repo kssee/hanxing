@@ -63,7 +63,7 @@
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, ['name'      => 'required|max:50|unique:menu,name',
 			                           'name_zh'   => 'required|max:50',
-			                           'path'      => 'required|alpha_dash|max:255',
+			                           'path'      => 'required|max:255',
 			                           'parent_id' => 'exists:menu,id',
 			                           'active_id' => 'exists:menu,id',
 			                           'layer'     => 'required|in:1,2,3',
@@ -136,7 +136,7 @@
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, ['name'      => 'required|max:50',
 			                           'name_zh'   => 'required|max:50',
-			                           'path'      => 'required|alpha_dash|max:255',
+			                           'path'      => 'required|max:255',
 			                           'parent_id' => 'exists:menu,id',
 			                           'active_id' => 'exists:menu,id',
 			                           'layer'     => 'required|in:1,2,3',
