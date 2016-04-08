@@ -37,7 +37,7 @@
                                         <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image hidden-xs"/>
                                     @endif
 
-                                    <b>{{str_limit($entry['title'],40)}}</b>
+                                    <b>{{str_limit($entry['title'],30)}}</b>
 
                                     @if(!is_null($entry['highlight']) && !empty($entry['highlight']))
                                         <p>{{str_limit($entry['highlight'],110)}}</p>
@@ -66,7 +66,7 @@
                                             </span>
                                         </td>
                                         <td valign="top">
-                                            <h2>{!! link_to_route('viewEvent',ucwords(str_limit($entry->title,40)),['slug'=>$entry->slug]) !!}</h2>
+                                            <h2>{!! link_to_route('viewEvent',ucwords(str_limit($entry->title,30)),['slug'=>$entry->slug]) !!}</h2>
                                             <span class="activity-date visible-xs">{{$entry->activity_date->toFormattedDateString()}}</span>
 
                                             <p>{{ucfirst(str_limit($entry->highlight,160))}}</p>
