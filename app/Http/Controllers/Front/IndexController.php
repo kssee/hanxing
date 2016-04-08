@@ -39,7 +39,7 @@
 				'slug'           => 'why-hanxing',
 				'highlight'      => '',
 				'txt'            => trans('custom.our_reputation'),
-				'path_thumbnail' => 'images/pages/thumbnails/1460049026-item-example2.jpg',
+				'path_thumbnail' => 'images/t.jpg',
 			];
 
 			$othersList[] = [
@@ -47,7 +47,7 @@
 				'slug'           => 'scholarship',
 				'highlight'      => '',
 				'txt'            => trans('custom.let_us_help'),
-				'path_thumbnail' => 'images/pages/thumbnails/1460049026-item-example2.jpg',
+				'path_thumbnail' => 'images/t.jpg',
 			];
 
 			$othersList[] = [
@@ -55,7 +55,7 @@
 				'slug'           => 'campus-life',
 				'highlight'      => '',
 				'txt'            => trans('custom.live_with_us'),
-				'path_thumbnail' => 'images/pages/thumbnails/1460049026-item-example2.jpg',
+				'path_thumbnail' => 'images/t.jpg',
 			];
 
 			$othersList[] = [
