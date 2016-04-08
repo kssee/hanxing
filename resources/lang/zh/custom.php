@@ -25,7 +25,7 @@
 		'publish'                  => 'Publish',
 		'pending'                  => 'Pending',
 		'successful'               => 'Successful',
-		'register_success_txt'      => 'Thank you, we will come back to you shortly.',
+		'register_success_txt'     => 'Thank you, we will come back to you shortly.',
 		'will_contact_you_txt'     => 'Once you have completed the form below, one of our dedicated counsellors will contact you to follow up on the rest of the application procedure.',
 		'view'                     => 'View',
 		'why_choose_us'            => 'Why choose us',
@@ -68,6 +68,7 @@
 		'quick_links'              => 'Quick Links',
 		'programmes'               => 'Programmes',
 		'intake'                   => 'Intake',
+		'home'                     => 'Home',
 		''                         => '',
 
 

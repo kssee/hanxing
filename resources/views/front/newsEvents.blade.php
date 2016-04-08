@@ -30,7 +30,20 @@
                 <div class="highlight-box row">
                     @foreach ($row as $entry)
                         <div class="col-sm-3">
-                            @include('partials.itembox',['category'=>1,'route'=>'viewNews'])
+                            <div class="item item-light">
+                                <div class="cursor-pointer" onclick="{!!"location.href='" . route('viewNews',['slug'=>$entry['slug']]) . "'"!!}">
+
+                                    @if(!is_null($entry['path_thumbnail']) && !empty($entry['path_thumbnail']))
+                                        <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image hidden-xs"/>
+                                    @endif
+
+                                    <b>{{str_limit($entry['title'],40)}}</b>
+
+                                    @if(!is_null($entry['highlight']) && !empty($entry['highlight']))
+                                        <p>{{str_limit($entry['highlight'],110)}}</p>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -53,7 +66,7 @@
                                             </span>
                                         </td>
                                         <td valign="top">
-                                            <h2>{!! link_to_route('viewEvent',ucwords($entry->title),['slug'=>$entry->slug]) !!}</h2>
+                                            <h2>{!! link_to_route('viewEvent',ucwords(str_limit($entry->title,40)),['slug'=>$entry->slug]) !!}</h2>
                                             <span class="activity-date visible-xs">{{$entry->activity_date->toFormattedDateString()}}</span>
 
                                             <p>{{ucfirst(str_limit($entry->highlight,160))}}</p>
