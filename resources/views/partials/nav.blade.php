@@ -1,7 +1,13 @@
 <div class="top-bar">
     <div class="container">
         <div class="mini-nav">
-            <a href="">English</a> . <a href="">Chinese</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="">Student</a> &nbsp;&nbsp;&nbsp;<a href="">Alumni</a>
+            @if(trans()->locale() == 'en')
+                <small>English</small> . {!! link_to_route('setLanguage','中文',['lg'=>'zh']) !!}
+            @else
+                {!! link_to_route('setLanguage','English',['lg'=>'en']) !!} . <small>中文</small>
+            @endif
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                {!! link_to_route('student',trans('custom.student')) !!} &nbsp;&nbsp;&nbsp;{!! link_to_route('alumni',trans('custom.alumni')) !!}
         </div>
         <table width="100%">
             <tr>

@@ -127,6 +127,12 @@ label {
 .fa-7x {
   font-size: 7em; }
 
+.x-small {
+  font-size: .4em; }
+
+.underline {
+  text-decoration: underline !important; }
+
 .curson-disable, .curson-disable:hover {
   cursor: not-allowed; }
 
@@ -346,42 +352,52 @@ h1 {
     .highlight-box .item-dark span {
       color: #b8ce00;
       font-size: 1.2em; }
-
-.highlight-box-black .col-sm-3 {
-  padding: 0 5px; }
-
-.highlight-box-black .item-container {
-  background-color: #000;
-  padding: 1px;
-  margin: 0 auto 20px;
-  color: #fff; }
-  .highlight-box-black .item-container img {
-    opacity: 0.8;
-    filter: alpha(opacity=80); }
-  .highlight-box-black .item-container .content {
-    color: #696969;
-    padding: 10px; }
-    .highlight-box-black .item-container .content h4 {
-      font-family: "Oswald", sans-serif;
+  .highlight-box .item-black {
+    background-color: #000;
+    padding: 1px;
+    color: #696969; }
+    .highlight-box .item-black img {
+      padding: 0;
+      opacity: 0.8;
+      filter: alpha(opacity=80); }
+    .highlight-box .item-black h2 {
+      font-size: 1.1em;
+      padding: 10px 10px 5px;
+      margin: 0;
       text-transform: uppercase; }
-      .highlight-box-black .item-container .content h4 a:hover {
-        color: #fff; }
-    .highlight-box-black .item-container .content p {
+    .highlight-box .item-black p {
+      padding: 0 10px;
       font-size: .9em;
-      height: 70px; }
-    .highlight-box-black .item-container .content a {
+      line-height: 1.1em;
+      color: #696969; }
+    .highlight-box .item-black .more-link {
+      text-align: right;
+      padding: 5px 8px;
       font-size: .8em; }
-      .highlight-box-black .item-container .content a:hover {
-        color: #b8ce00; }
-  .highlight-box-black .item-container:hover img {
-    opacity: 1;
-    filter: alpha(opacity=100); }
-  .highlight-box-black .item-container:hover .content {
-    color: #fff; }
-  .highlight-box-black .item-container:hover h4 a {
-    color: #fff; }
-  .highlight-box-black .item-container:hover a {
-    color: #b8ce00; }
+    .highlight-box .item-black:hover img {
+      opacity: 1;
+      filter: alpha(opacity=100); }
+    .highlight-box .item-black:hover .more-link {
+      color: #b8ce00; }
+    .highlight-box .item-black:hover h2 {
+      color: #fff; }
+    .highlight-box .item-black:hover p {
+      color: #fff; }
+  .highlight-box .item-event {
+    border-bottom: 1px dotted #696969; }
+    .highlight-box .item-event h2 {
+      font-size: 1.6em;
+      margin-bottom: 5px;
+      font-weight: bold; }
+      .highlight-box .item-event h2 a:hover {
+        color: #adc201; }
+    .highlight-box .item-event p {
+      padding-top: 3px;
+      line-height: 1.1em; }
+
+.activity-date {
+  color: #cccccc;
+  font-style: italic; }
 
 .news-bar {
   background-color: #dfdfdf;
@@ -471,7 +487,24 @@ h1 {
 
 .contact-info-box .content {
   background-color: #b8ce00;
-  padding: 10px; }
+  padding: 10px;
+  height: 255px; }
+
+.contact-us-info-bar {
+  margin: 10px 0; }
+  .contact-us-info-bar .col-sm-3 {
+    margin: 10px 0; }
+  .contact-us-info-bar table h4 {
+    margin-top: 0;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    font-size: 1.2em; }
+  .contact-us-info-bar table tr td {
+    padding: 3px 5px; }
+
+.border-right-dash {
+  border-right: 1px dashed #cccccc; }
 
 .carousel .carousel-control {
   width: 5%; }
@@ -530,7 +563,8 @@ h1 {
 
 .quick-link-bar {
   background-color: #eee;
-  padding: 20px 0 40px; }
+  padding: 20px 0 40px;
+  margin: 0; }
   .quick-link-bar h4 {
     font-family: "Oswald", sans-serif;
     color: #696969;
@@ -692,9 +726,9 @@ h1 {
     display: none; }
   .mini-nav a {
     font-size: .8em !important; }
-  .carousel-indicators {
+  .carousel .carousel-indicators {
     top: 10px;
-    right: 20px !important; }
+    right: 15px !important; }
   #nav-logo {
     width: 130px !important; }
   .follow-bar .social-bar i {
@@ -708,14 +742,9 @@ h1 {
       border-bottom: none; }
   .quick-link-bar {
     text-align: center; }
-  .highlight-box-special .item-container .content p {
-    height: auto; }
   .highlight-box {
     padding: 0;
     margin: 0; }
-  .item {
-    padding: 15px;
-    margin: 0 auto; }
   .item-green {
     padding-top: 10px !important;
     text-align: left !important; }
@@ -725,6 +754,13 @@ h1 {
     border-right: none;
     border-bottom: 1px dashed #696969;
     padding-bottom: 10px;
-    margin-bottom: 10px; } }
+    margin-bottom: 10px; }
+  .border-right-dash {
+    border-right: none;
+    border-bottom: 1px dashed #cccccc; }
+  .contact-us-info-bar table h4 {
+    text-align: left; }
+  .contact-info-box .content {
+    height: auto; } }
 
 /*# sourceMappingURL=app.css.map */

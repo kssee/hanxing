@@ -321,6 +321,9 @@ body {
 .color-primary {
   color: #337ab7 !important; }
 
+.color-white {
+  color: #ffffff; }
+
 .color-success {
   color: #5cb85c !important; }
 
@@ -338,6 +341,9 @@ body {
 
 .color-pp {
   color: #7906af !important; }
+
+.color-main {
+  color: #b8ce00; }
 
 .bold {
   font-weight: bold; }
@@ -408,6 +414,12 @@ label {
 .fa-7x {
   font-size: 7em; }
 
+.x-small {
+  font-size: .4em; }
+
+.underline {
+  text-decoration: underline !important; }
+
 .curson-disable, .curson-disable:hover {
   cursor: not-allowed; }
 
@@ -437,5 +449,8 @@ tfoot {
 
 .responsive-image {
   width: 100%; }
+
+.cursor-pointer {
+  cursor: pointer; }
 
 /*# sourceMappingURL=admin.css.map */

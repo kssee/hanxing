@@ -15,7 +15,7 @@
 		 */
 		public function __construct()
 		{
-			$this->middleware('permission:system_information',['only'=>['editSystemInformation','updateSystemInformation']]);
+			$this->middleware('permission:system_information', ['only' => ['editSystemInformation', 'updateSystemInformation']]);
 		}
 
 		/**
@@ -48,7 +48,9 @@
 			                           'tel_registration' => 'max:28',
 			                           'tel_office'       => 'max:28',
 			                           'fax'              => 'max:28',
+			                           'sticker_content'  => 'max:255',
 			                           'facebook_url'     => 'url|max:255',
+			                           'youtube_url'      => 'url|max:255',
 			                           'password'         => 'confirmed|min:4|max:64',
 			]);
 
@@ -64,6 +66,9 @@
 				$system_info->tel_office       = $request->tel_office;
 				$system_info->fax              = $request->fax;
 				$system_info->facebook_url     = $request->facebook_url;
+				$system_info->youtube_url      = $request->youtube_url;
+				$system_info->page_content     = $request->page_content;
+				$system_info->sticker_content  = $request->sticker_content;
 				$system_info->upd_by           = auth()->user()->name;
 
 				if($request->has('password'))

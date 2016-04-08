@@ -10,10 +10,9 @@
             <thead>
             <tr>
                 <th width="20px"></th>
-                <th width="80px"></th>
+                <th width="100px"></th>
                 <th width="150px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
-                <th>{!!sortingLink(trans('custom.slug'),'b')!!}</th>
-                <th>{!!sortingLink(trans('custom.title'),'c')!!}</th>
+                <th>{!!sortingLink(trans('custom.title'),'b')!!}</th>
                 <th>{{trans('custom.created_by')}}</th>
             </tr>
             </thead>
@@ -28,13 +27,13 @@
                             <i class="fa fa-circle fa-lg color-danger"></i>&nbsp;
                         @endif
 
+                        {!! iconLinkWithPermission('admin_pages','pages','fa-search',trans('custom.view'),['slug'=>$entry->slug],['target'=>'_blank']) !!}
                         {!! iconLinkWithPermission('admin_pages','admin.page.edit','fa-pencil-square-o',trans('custom.edit'),['pages'=>$entry->id]) !!}
                         @if(!$entry->default)
                             {!! iconLinkWithPermission('admin_pages','admin.page.destroy','fa-trash color-danger',trans('custom.delete'),['pages'=>$entry->id],[],true) !!}
                         @endif
                     </td>
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>
-                    <td>{{ $entry->slug }}</td>
                     <td>{{ is_null($entry->title)?"-":$entry->title }}</td>
                     <td>{{ $entry->cre_by }}</td>
                 </tr>

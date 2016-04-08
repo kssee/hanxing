@@ -46,6 +46,9 @@ elixir(function (mix) {
         .copy($bowerPath + "raphael/raphael-min.js", "resources/assets/js/vendor/raphael.js")
         .copy($bowerPath + "notie/notie.js", "resources/assets/js/vendor/notie.js")
 
+        .copy($bowerPath + "select2/dist/js/select2.min.js", "resources/assets/js/vendor/select2.js")
+        .copy($bowerPath + "select2/dist/css/select2.min.css", "resources/assets/css/vendor/select2.css")
+
         //.copy($bowerPath + "ckeditor/adapters", "public/ckeditor/adapters")
         //.copy($bowerPath + "ckeditor/lang", "public/ckeditor/lang")
         //.copy($bowerPath + "ckeditor/plugins", "public/ckeditor/plugins")
@@ -75,6 +78,7 @@ elixir(function (mix) {
             'vendor/colorbox.css',
             'vendor/metisMenu.css',
             'vendor/morrisjs.css',
+            'vendor/select2.css',
             'admin.css'
         ], 'public/css/admin.css')
 
@@ -101,6 +105,7 @@ elixir(function (mix) {
             'vendor/footable.js',
             'vendor/jquery-validation.js',
             'vendor/notie.js',
+            'vendor/select2.js',
             'adminScript.js'
         ], 'public/js/admin.js')
     ;

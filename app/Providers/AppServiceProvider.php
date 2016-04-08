@@ -3,6 +3,7 @@
 	namespace App\Providers;
 
 	use App\Models\Menu;
+	use App\Models\Pages;
 	use App\Models\SystemInformation;
 	use Illuminate\Support\ServiceProvider;
 
@@ -14,6 +15,7 @@
 		 */
 		public function boot()
 		{
+			//system information
 			try
 			{
 				$system_info = SystemInformation::first();
@@ -23,6 +25,8 @@
 			}
 			config(['system_info' => $system_info]);
 
+
+			//navigation bar
 			view()->composer('partials.nav', function ($view)
 			{
 				$menu        = [];
@@ -59,13 +63,14 @@
 				$view->with('menu', $menu);
 			});
 
+			// breadcrumb bar
 			view()->composer('partials.breadcrumb', function ($view)
 			{
 				$path = $_SERVER['REQUEST_URI'];
 				$path = substr($path, 1);
 
 				$breadcrumb['link'][] = ['Home' => route('index')];
-				$active       = Menu::where('path', $path)->first();
+				$active               = Menu::where('path', $path)->first();
 
 				if(isset($active) && ! is_null($active))
 				{
@@ -96,6 +101,32 @@
 					$breadcrumb['active'] = 'Current Page';
 				}
 				$view->with('breadcrumb', $breadcrumb);
+			});
+
+
+			// quick link bar
+			view()->composer('partials.quickLink', function ($view)
+			{
+				$quick_link = [
+					'Why HANXING?'         => route('pages', ['slug' => 'about']),
+					'Scholarship & Loan'   => route('pages', ['slug' => 'about']),
+					'Campus Life'          => route('pages', ['slug' => 'about']),
+					'Partner Universities' => route('pages', ['slug' => 'about']),
+					'Online Register'      => route('onlineRegister'),
+					'Contact Us'           => route('contactUs'),
+				];
+
+				$programmes      = Pages::where('category', 'programmes')->where('published', 1)->orderBy('title')->get();
+				$programme_links = [];
+
+				foreach($programmes as $entry)
+				{
+					$programme_links[ $entry->title ] = route('pages', ['slug' => $entry->slug]);
+				}
+
+				$links['quick_links']     = $quick_link;
+				$links['programme_links'] = $programme_links;
+				$view->with('links', $links);
 			});
 		}
 

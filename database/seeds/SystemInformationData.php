@@ -20,9 +20,12 @@
 					'tel_office'       => '03-9132 5419',
 					'fax'              => '03-9131 9204',
 					'email'            => 'hanxing@hanxing.edu.my',
-					'facebook_url'     => 'www.facebook.com/hanxingcollege',
+					'facebook_url'     => 'https://www.facebook.com/hanxingcollege',
+					'youtube_url'      => 'https://www.youtube.com',
 					'password'         => bcrypt('hanxing'),
 					'upd_by'           => 'SYSTEM',
+					'updated_at'       => \Carbon\Carbon::now()->toDateTimeString(),
+					'created_at'       => \Carbon\Carbon::now()->toDateTimeString(),
 				]
 			);
 		}

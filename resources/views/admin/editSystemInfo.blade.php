@@ -88,6 +88,27 @@
         </div>
     </div>
 
+    <div class="form-group">
+        {!! Form::label('youtube_url',trans('custom.youtube_url'),['class'=>'control-label col-sm-3']) !!}
+        <div class="col-sm-9">
+            {!! Form::text('youtube_url',old('youtube_url'),['class'=>'form-control input-sm','placeholder'=>'http(s)://'])!!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('page_content',trans('custom.content'),['class'=>'control-label col-sm-3']) !!}
+        <div class="col-sm-9">
+            {!! Form::textarea('page_content',old('page_content'),['class'=>'form-control input-sm input-required','required'=>'required','id'=>'editor'])!!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('sticker_content','Sticker ' . trans('custom.content'),['class'=>'control-label col-sm-3']) !!}
+        <div class="col-sm-9">
+            {!! Form::textarea('sticker_content',old('sticker_content'),['class'=>'form-control input-sm input-required','required'=>'required'])!!}
+        </div>
+    </div>
+
     <hr/>
 
     <div class="form-group">
@@ -110,4 +131,48 @@
     </div>
 
     {!! Form::close() !!}
+
+
+    <script src="{{ asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
+    <script type="text/javascript">
+        if (CKEDITOR.env.ie && CKEDITOR.env.version < 9)
+            CKEDITOR.tools.enableHtml5Elements(document);
+
+        CKEDITOR.config.height = 350;
+        CKEDITOR.config.width = 'auto';
+
+        var initCkeditor = (function () {
+            var wysiwygareaAvailable = isWysiwygareaAvailable(),
+                    isBBCodeBuiltIn = !!CKEDITOR.plugins.get('bbcode');
+
+            return function () {
+                var editorElement = CKEDITOR.document.getById('editor');
+
+                if (isBBCodeBuiltIn) {
+                    editorElement.setHtml(
+                            ''
+                    );
+                }
+                if (wysiwygareaAvailable) {
+                    CKEDITOR.replace('editor', {
+
+                        filebrowserBrowseUrl: '/elfinder/ckeditor'
+                    });
+                } else {
+                    editorElement.setAttribute('contenteditable', 'true');
+                    CKEDITOR.inline('editor');
+                }
+            };
+
+            function isWysiwygareaAvailable() {
+                if (CKEDITOR.revision == ( '%RE' + 'V%' )) {
+                    return true;
+                }
+
+                return !!CKEDITOR.plugins.get('wysiwygarea');
+            }
+        })();
+    </script>
+
+    <script>initCkeditor();</script>
 @stop

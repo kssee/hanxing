@@ -4,161 +4,75 @@
 @stop
 
 @section('content')
-    <h1>{{$subject}}</h1>
+    @include('partials.breadcrumb')
 
-    <div class="highlight-box row">
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>
+        @if($type == 'events')
+            {{trans('custom.events')}}
 
-    <div class="highlight-box row">
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
+            <div class="pull-right">
+                @if($past)
+                    {!! link_to_route('events',trans('custom.coming_soon'),['past'=>0],['class'=>'x-small underline']) !!} .
+                    <span class="x-small color-gray">{{trans('custom.past')}}</span>
+                @else
+                    <span class="x-small color-gray">{{trans('custom.coming_soon')}}</span> .
+                    {!! link_to_route('events',trans('custom.past'),['past'=>1],['class'=>'x-small underline']) !!}
+                @endif
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        @else
+            {{trans('custom.news')}}
+        @endif
+    </h1>
 
-    <div class="highlight-box row">
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
+    @if(count($result))
+        @if($type == 'news')
+            @foreach ($result->chunk(4) as $row)
+                <div class="highlight-box row">
+                    @foreach ($row as $entry)
+                        <div class="col-sm-3">
+                            @include('partials.itembox',['category'=>1,'route'=>'viewNews'])
+                        </div>
+                    @endforeach
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+            @endforeach
+        @else
+            @foreach ($result->chunk(2) as $row)
+                <div class="highlight-box row">
+                    @foreach ($row as $entry)
+                        <div class="col-sm-6">
+                            <div class="item item-event">
+                                <table width="100%">
+                                    <tr>
+                                        <td valign="top" width="100px" class="hidden-xs">
+                                            <span class="fa-stack fa-3x color-main">
+                                                <i class="fa fa-calendar-o fa-stack-2x"></i>
+                                                <span class="calendar-txt">
+                                                    {{$entry->activity_date->format('d')}}<br/>
+                                                    {{$entry->activity_date->format('M')}}
+                                                </span>
+                                            </span>
+                                        </td>
+                                        <td valign="top">
+                                            <h2>{!! link_to_route('viewEvent',ucwords($entry->title),['slug'=>$entry->slug]) !!}</h2>
+                                            <span class="activity-date visible-xs">{{$entry->activity_date->toFormattedDateString()}}</span>
 
-    <div class="highlight-box row">
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
+                                            <p>{{ucfirst(str_limit($entry->highlight,160))}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="item item-light">
-                <div class="cursor-pointer">
-                    <img src="{{asset('images/item-example.jpg')}}" class="responsive-image hidden-xs"/>
-                    <h3>News or event title</h3>
-                    <p>Our career-focused finance, built environment and engineering specialisms.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+            @endforeach
+        @endif
+
+        @if(isset($paginate_appends))
+            {!! $result->appends($paginate_appends)->render() !!}
+        @else
+            {!! $result->render() !!}
+        @endif
+    @else
+        <p class="no-record">{{trans('custom.no_record')}}</p>
+    @endif
 @stop

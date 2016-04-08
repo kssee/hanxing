@@ -10,3 +10,5 @@ composer.lock
 /bower_components
 /public/images/upload
 /public/images/banners
+/public/images/news
+/public/images/pages

@@ -76,6 +76,10 @@
                             <td>{{$system_information->facebook_url}}</td>
                         </tr>
                         <tr>
+                            <td><label>{{trans('custom.youtube_url')}}</label></td>
+                            <td>{{$system_information->youtube_url}}</td>
+                        </tr>
+                        <tr>
                             <td><label>{{trans('custom.student_password')}}</label></td>
                             <td><i class="color-gray">*encrypted*</i></td>
                         </tr>

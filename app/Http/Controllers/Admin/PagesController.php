@@ -6,8 +6,9 @@
 	use App\Http\Library\Notie;
 	use App\Http\Requests;
 	use App\Models\Pages;
-	use Carbon\Carbon;
 	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\File;
+	use Intervention\Image\Facades\Image;
 
 	class PagesController extends Controller {
 		/**
@@ -36,7 +37,7 @@
 			$from    = $request->get('from');
 			$to      = $request->get('to');
 
-			$sortColumns = ['a' => 'created_at', 'b' => 'slug', 'c' => 'title'];
+			$sortColumns = ['a' => 'created_at', 'b' => 'title'];
 			$sortColumn  = find_soft_column($sortBy, $sortColumns, 'created_at');
 			$from        = get_filter_date_from($from);
 			$to          = get_filter_date_to($to);
@@ -47,7 +48,7 @@
 			$query = Pages::whereBetween('created_at', [$from->toDateTimeString(), $to->toDateTimeString()]);
 			if($search != '')
 			{
-				$search_available_field = ['slug', 'title'];
+				$search_available_field = ['title'];
 				search_to_query($query, $search, $search_available_field, $st);
 			}
 			else
@@ -87,12 +88,12 @@
 		 */
 		public function create()
 		{
-			$page_subject = trans('custom.page_add_title');
-			$categoryArr  = [
-				'default' => 'Default'
-			];
+			$page_subject    = trans('custom.page_add_title');
+			$categoryArr     = $this->getCategory();
+			$childDisplayArr = $this->getCategory('child');
+			$pagesArr        = Pages::lists('title', 'id');
 
-			return view('admin.pages.create', compact('page_subject', 'categoryArr'));
+			return view('admin.pages.create', compact('page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
 
 		/**
@@ -104,23 +105,43 @@
 		 */
 		public function store(Request $request)
 		{
-			$request->merge(array_map('trim', $request->all()));
-			$this->validate($request, ['slug'         => 'required|max:100|alpha_dash|unique:pages,slug',
-			                           'title'        => 'max:255',
-			                           'category'     => 'required|in:default',
-			                           'highlight'    => 'max:255',
-			                           'published'    => 'required|boolean',
-			                           'page_content' => 'required']);
+			$request->merge(array_map('trim', $request->except('child_page_id')));
+			$this->validate($request, ['title'                  => 'required|max:255',
+			                           'category'               => 'required|alpha',
+			                           'highlight'              => 'max:255',
+			                           'published'              => 'required|boolean',
+			                           'image'                  => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'thumbnail'              => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'child_page_id'          => 'array',
+			                           'child_display_category' => 'in:0,1,2,3',
+			                           'page_content'           => 'required']);
 
-			$page               = new Pages();
-			$page->slug         = $request->slug;
-			$page->title        = $request->get('title', NULL);
-			$page->highlight    = $request->highlight;
-			$page->published    = $request->published;
-			$page->category     = $request->category;
-			$page->page_content = $request->page_content;
-			$page->cre_by       = auth()->user()->name;
-			$page->upd_by       = auth()->user()->name;
+			$page                         = new Pages();
+			$page->slug                   = str_slug($request->title);
+			$page->title                  = $request->title;
+			$page->highlight              = $request->highlight;
+			$page->published              = $request->published;
+			$page->category               = $request->category;
+			$page->child_display_category = $request->child_display_category;
+			$page->page_content           = $request->page_content;
+			$page->cre_by                 = auth()->user()->name;
+			$page->upd_by                 = auth()->user()->name;
+
+			if($request->has('image'))
+			{
+				$page->path_banner = $this->save_image($request->file('image'));
+			}
+
+			if($request->has('thumbnail'))
+			{
+				$page->path_thumbnail = $this->save_thumbnail($request->file('thumbnail'));
+			}
+
+			if($request->has('child_page_id') && count($request->child_page_id))
+			{
+				$page->child_page_id = implode(',', $request->child_page_id);
+			}
+
 			$page->save();
 
 			Notie::success();
@@ -138,13 +159,15 @@
 		public function edit($id)
 		{
 			$page_subject = trans('custom.page_edit_title');
-			$result       = Pages::findOrFail($id);
 
-			$categoryArr = [
-				'default' => 'Default'
-			];
+			$result                  = Pages::findOrFail($id);
+			$result['child_page_id'] = explode(',', $result->child_page_id);
 
-			return view('admin.pages.edit', compact('result', 'page_subject', 'categoryArr'));
+			$categoryArr     = $this->getCategory();
+			$childDisplayArr = $this->getCategory('child');
+			$pagesArr        = Pages::where('id', '<>', $id)->lists('title', 'id');
+
+			return view('admin.pages.edit', compact('result', 'page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
 
 		/**
@@ -157,22 +180,44 @@
 		 */
 		public function update(Request $request, $id)
 		{
-			$request->merge(array_map('trim', $request->all()));
-			$this->validate($request, ['slug'         => 'required|max:100|alpha_dash',
-			                           'title'        => 'max:255',
-			                           'category'     => 'required|in:default',
-			                           'highlight'    => 'max:255',
-			                           'published'    => 'required|boolean',
-			                           'page_content' => 'required']);
+			$request->merge(array_map('trim', $request->except('child_page_id')));
+			$this->validate($request, ['title'                  => 'required|max:255',
+			                           'category'               => 'required|alpha',
+			                           'highlight'              => 'max:255',
+			                           'published'              => 'required|boolean',
+			                           'image'                  => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'thumbnail'              => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'child_page_id'          => 'array',
+			                           'child_display_category' => 'in:0,1,2,3',
+			                           'page_content'           => 'required']);
 
-			$page               = Pages::findOrFail($id);
-			$page->slug         = $request->slug;
-			$page->title        = $request->get('title', NULL);
-			$page->highlight    = $request->highlight;
-			$page->published    = $request->published;
-			$page->category     = $request->category;
-			$page->page_content = $request->page_content;
-			$page->upd_by       = auth()->user()->name;
+			$page                         = Pages::findOrFail($id);
+			$page->slug                   = str_slug($request->title);
+			$page->title                  = $request->title;
+			$page->highlight              = $request->highlight;
+			$page->published              = $request->published;
+			$page->category               = $request->category;
+			$page->child_display_category = $request->child_display_category;
+			$page->page_content           = $request->page_content;
+			$page->upd_by                 = auth()->user()->name;
+
+			if($request->has('image'))
+			{
+				File::delete($page->path_banner);
+				$page->path_banner = $this->save_image($request->file('image'));
+			}
+
+			if($request->has('thumbnail'))
+			{
+				File::delete($page->path_thumbnail);
+				$page->path_thumbnail = $this->save_thumbnail($request->file('thumbnail'));
+			}
+
+			if($request->has('child_page_id') && count($request->child_page_id))
+			{
+				$page->child_page_id = implode(',', $request->child_page_id);
+			}
+
 			$page->save();
 
 			Notie::success('Updated');
@@ -190,10 +235,63 @@
 		public function destroy($id)
 		{
 			$page = Pages::findOrFail($id);
+
+			File::delete($page->path_banner);
+			File::delete($page->thumbnail);
+
 			$page->delete();
 
 			Notie::success('Deleted');
 
 			return redirect()->route('admin.page.index');
+		}
+
+		private function getCategory($type = 'page')
+		{
+			$data = [];
+			if($type == 'page')
+			{
+				$data = [
+					'default'    => 'Default',
+					'programmes' => 'Programmes',
+				];
+			}
+			elseif($type == 'child')
+			{
+				$data = [
+					'0' => '-- None --',
+					'1' => 'White',
+					'2' => 'Dark Gray',
+					'3' => 'Black',
+				];
+			}
+
+			return $data;
+		}
+
+		private function save_image($image)
+		{
+			$timestamp   = time();
+			$path        = env('PAGE_BANNER_PATH');
+			$img_dt_name = $timestamp . '-' . $image->getClientOriginalName();
+			$image_path  = $path . '/' . $img_dt_name;
+
+			$image->move($path, $img_dt_name);
+			Image::make($image_path)->fit(env('PAGE_BANNER_WIDTH'), env('PAGE_BANNER_HEIGHT'))->save();
+
+			return $image_path;
+		}
+
+		private function save_thumbnail($image)
+		{
+			$timestamp   = time();
+			$path        = env('PAGE_THUMBNAIL_PATH');
+			$img_dt_name = $timestamp . '-' . $image->getClientOriginalName();
+			$image_path  = $path . '/' . $img_dt_name;
+
+			$image->move($path, $img_dt_name);
+			Image::make($image_path)->fit(env('PAGE_THUMBNAIL_WIDTH'), env('PAGE_THUMBNAIL_HEIGHT'))->save();
+
+			return $image_path;
 		}
 	}

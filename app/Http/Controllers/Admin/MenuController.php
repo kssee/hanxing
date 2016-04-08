@@ -146,6 +146,7 @@
 			$menu->name      = $request->name;
 			$menu->name_zh   = $request->name_zh;
 			$menu->path      = $request->path;
+			$menu->layer     = $request->layer;
 			$menu->active_id = $request->get('active_id', 0);
 			$menu->order     = $request->get('order', 0);
 			$menu->upd_by    = auth()->user()->name;
@@ -162,11 +163,6 @@
 			if($request->layer == 1 && ! $request->has('active_id'))
 			{
 				$menu->active_id = $menu->id;
-			}
-
-			if($request->layer == 1)
-			{
-				$menu->layer = $request->layer;
 			}
 
 			$menu->save();

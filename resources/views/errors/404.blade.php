@@ -33,14 +33,16 @@
 
             .title {
                 font-size: 72px;
-                margin-bottom: 40px;
+                margin-bottom: 10px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
+                <img src="{{asset('images/logos/logo.png')}}" width="150px" />
                 <div class="title">Page or file no found.</div>
+                {!! link_to_route('index','Back To Home Page') !!}
             </div>
         </div>
     </body>

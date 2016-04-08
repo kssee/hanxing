@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('jsFunctions')
     $( "form" ).validate();
+    $(".multi-select").select2();
 @stop
 
 @section('content')

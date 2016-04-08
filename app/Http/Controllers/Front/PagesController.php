@@ -1,25 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+	namespace App\Http\Controllers\Front;
 
-use Illuminate\Http\Request;
+	use App\Http\Controllers\Controller;
+	use App\Http\Requests;
+	use App\Models\Pages;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+	class PagesController extends Controller {
+		public function index($slug)
+		{
+			$page = Pages::where('slug', $slug)->where('published', '1')->firstOrFail();
 
-class PagesController extends Controller
-{
-    public function index($slug)
-    {
-	    if($slug == 'about')
-	    {
-		    return view('front.pages');
-	    }
-	    else
-	    {
-		    return view('front.pages2');
-	    }
+			if( ! is_null($page->child_page_id) && ! empty($page->child_page_id))
+			{
+				$child_id    = explode(',', $page->child_page_id);
+				$child_pages = Pages::where('published', '1')->whereIn('id', $child_id)->orderBy('title')->get();
+			}
 
-    }
+			return view('front.pages', compact('page', 'child_pages'));
+		}
 
-}
+	}

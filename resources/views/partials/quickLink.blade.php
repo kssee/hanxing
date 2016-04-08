@@ -2,26 +2,30 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Online register</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Maps &amp; directions</a></li>
-                </ul>
+                <h4>{{trans('custom.quick_links')}}</h4>
+                @if(count($links['quick_links']))
+                    <ul>
+                    @foreach($links['quick_links'] as $name=>$link)
+                        <li>{!! link_to($link,$name) !!}</li>
+                    @endforeach
+                    </ul>
+                @endif
             </div>
             <div class="col-sm-4">
-                <h4>Programmes</h4>
-                <ul>
-                    <li><a href="#">Diploma in Journalism</a></li>
-                    <li><a href="#">Diploma in Broadcasting</a></li>
-                    <li><a href="#">Diploma in Public Relations</a></li>
-                </ul>
+                <h4>{{trans('custom.programmes')}}</h4>
+                @if(count($links['programme_links']))
+                    <ul>
+                        @foreach($links['programme_links'] as $name=>$link)
+                            <li>{!! link_to($link,$name) !!}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
             <div class="col-sm-4">
-                <h4>Follow Us</h4>
+                <h4>{{trans('custom.follow_us')}}</h4>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook-square fa-lg"></i> &nbsp;Facebook</a></li>
-                    <li><a href="#"><i class="fa fa-youtube-square fa-lg"></i> &nbsp;Youtube</a></li>
+                    <li><a href="{!! config('system_info')->facebook_url!!}" target="_blank"><i class="fa fa-facebook-square fa-lg"></i> &nbsp;Facebook</a></li>
+                    <li><a href="{!! config('system_info')->youtube_url!!}" target="_blank"><i class="fa fa-youtube-square fa-lg"></i> &nbsp;Youtube</a></li>
                 </ul>
             </div>
         </div>

@@ -4,84 +4,28 @@
 @stop
 
 @section('content')
-    <img src="{{asset('images/banner.png')}}" class="responsive-image page-banner hidden-xs"/>
-
+    @if(!is_null($page->path_banner) && !empty($page->path_banner))
+        <img src="{{asset($page->path_banner)}}" class="responsive-image page-banner hidden-xs"/>
+    @endif
     @include('partials.breadcrumb')
 
-    <h1>Pre-University Programmes</h1>
+    <h1>{{$page->title}}</h1>
     <br/>
-    <p>In an increasingly competitive world, you need an edge to succeed. Whether your ambition is to be a cardiologist, world-renowned architect or prominent lawyer, it is important to have the right
-        start.</p>
+    {!! $page->page_content !!}
 
-    <p>A degree from a top-ranking university will certainly give you that edge, and it starts with a solid Pre-U education to help secure your place.</p>
-    <p>Set your sights on any university in the world, and we will help you get there.</p>
-    <br/>
-    <b>Personal guidance</b>
-    <p>Our full-time, highly qualified lecturers will be teaching you in small-sized classes, to ensure that you get the guidance, attention and support you need to succeed. You are encouraged to take
-        part in two-way discussions, which will help you develop the critical and analytical thinking required in tertiary education.</p>
-    <br/>
-
-    <b>Personal guidance</b>
-    <p>Our full-time, highly qualified lecturers will be teaching you in small-sized classes, to ensure that you get the guidance, attention and support you need to succeed. You are encouraged to take
-        part in two-way discussions, which will help you develop the critical and analytical thinking required in tertiary education.</p>
-    <br/>
-
-
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="highlight-box-black row">
-                <div class="col-sm-3">
-                    <div class="item-container">
-                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
-
-                        <div class="content">
-                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
-
-                            <p>Gain your edge through an industry-focused curriculum and the latest learning innovations.</p>
-                            <a href=""> Find out more ></a>
-                        </div>
+    @if(isset($child_pages) && count($child_pages))
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @foreach ($child_pages->chunk(4) as $row)
+                    <div class="highlight-box row">
+                        @foreach ($row as $entry)
+                            <div class="col-sm-3">
+                                @include('partials.itembox',['category'=>$page->child_display_category,'txt'=>'Find out more >','route'=>'pages'])
+                            </div>
+                        @endforeach
                     </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="item-container">
-                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
-
-                        <div class="content">
-                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
-
-                            <p>Gain your edge  the latest learning innovations.</p>
-                            <a href=""> Find out more ></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="item-container">
-                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
-
-                        <div class="content">
-                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
-
-                            <p>Gain your edge through .</p>
-                            <a href=""> Find out more ></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="item-container">
-                        <a class="hidden-xs" href=""><img src="{{asset('images/item-example2.jpg')}}" class="responsive-image"/></a>
-
-                        <div class="content">
-                            <h4><a href="">INNOVATIVE LEARNING</a></h4>
-
-                            <p>Gain your edge through an industry-focused curriculum and the latest learning innovations.</p>
-                            <a href=""> Find out more ></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 @stop

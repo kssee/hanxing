@@ -128,9 +128,18 @@
 
 		// Front Site
 		Route::get('/', ['as' => 'index', 'uses' => 'Front\IndexController@index']);
-		Route::get('activity/{type}', ['as' => 'newsEvents', 'uses' => 'Front\NewsEventsController@index'])->where('type','news|events');
+		Route::get('student', ['as' => 'student', 'uses' => 'Front\StudentController@student']);
+		Route::get('alumni', ['as' => 'alumni', 'uses' => 'Front\StudentController@alumni']);
+		Route::get('news', ['as' => 'news', 'uses' => 'Front\NewsEventsController@news']);
+		Route::get('events', ['as' => 'events', 'uses' => 'Front\NewsEventsController@events']);
+		Route::get('news/{slug}', ['as' => 'viewNews', 'uses' => 'Front\NewsEventsController@viewNews']);
+		Route::get('event/{slug}', ['as' => 'viewEvent', 'uses' => 'Front\NewsEventsController@viewEvent']);
+		Route::get('online-register', ['as' => 'onlineRegister', 'uses' => 'Front\OnlineRegisterController@index']);
+		Route::post('online-register', ['as' => 'sendRegister', 'uses' => 'Front\OnlineRegisterController@sendMail']);
 		Route::get('contact-us', ['as' => 'contactUs', 'uses' => 'Front\ContactUsController@index']);
-		Route::post('contact-us', ['as' => 'sendContact', 'uses' => 'Front\ContactUsController@sendMail']);
+
+		Route::get('language/{lg}', ['as' => 'setLanguage', 'uses' => 'Front\IndexController@language'])->where('lg', 'en|zh');
+
 		Route::get('{slug}', ['as' => 'pages', 'uses' => 'Front\PagesController@index']);
 
 	});

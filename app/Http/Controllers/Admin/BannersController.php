@@ -42,7 +42,7 @@
 				$query->where('published', $status);
 			}
 
-			$result = $query->orderBy($sortColumn, $orderBy)->paginate(30);
+			$result = $query->orderBy($sortColumn, $orderBy)->paginate(10);
 
 			$paginate_appends = ['status' => $status,
 			                     'from'   => $from->toDateString(),
@@ -78,14 +78,12 @@
 			                           'url'         => 'url|max:255',
 			                           'published'   => 'required|boolean']);
 
-			$image_path = $this->save_image($request->file('image'));
-
 			$banner              = new Banners();
 			$banner->title       = $request->get('title', NULL);
 			$banner->description = $request->get('description', NULL);
 			$banner->url         = $request->get('url', NULL);
 			$banner->published   = $request->published;
-			$banner->path        = $image_path;
+			$banner->path        = $this->save_image($request->file('image'));
 			$banner->cre_by      = auth()->user()->name;
 			$banner->upd_by      = auth()->user()->name;
 			$banner->save();
@@ -121,8 +119,7 @@
 			if($request->has('image'))
 			{
 				File::delete($banner->path);
-				$image_path   = $this->save_image($request->file('image'));
-				$banner->path = $image_path;
+				$banner->path = $this->save_image($request->file('image'));
 			}
 
 			$banner->save();

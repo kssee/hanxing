@@ -1,11 +1,4 @@
 <div class="form-group">
-    {!! Form::label('slug',trans('custom.slug'),['class'=>'control-label col-sm-2']) !!}
-    <div class="col-sm-10">
-        {!! Form::text('slug',old('slug'),['class'=>'form-control input-sm input-required','required'=>'required'])!!}
-    </div>
-</div>
-
-<div class="form-group">
     {!! Form::label('title',trans('custom.title'),['class'=>'control-label col-sm-2']) !!}
     <div class="col-sm-10">
         {!! Form::text('title',old('title'),['class'=>'form-control input-sm'])!!}
@@ -20,14 +13,46 @@
 <div class="form-group">
     {!! Form::label('published',trans('custom.publish') . ' ?',['class'=>'control-label col-sm-2']) !!}
     <div class="col-sm-10">
-        <label>{!! Form::radio('published',1)!!} Yes</label> &nbsp; <label>{!! Form::radio('published',0)!!} No</label>
+        <label>{!! Form::radio('published',1,true)!!} Yes</label> &nbsp; <label>{!! Form::radio('published',0)!!} No</label>
+    </div>
+</div>
+
+@if(isset($result->path_banner))
+    <div class="form-group">
+        <div class="col-sm-2 text-right"><label>Current Banner</label></div>
+        <div class="col-sm-10">
+            <img src="{{ asset($result->path_banner) }}" class="responsive-image" />
+        </div>
+    </div>
+@endif
+
+<div class="form-group">
+    {!! Form::label('image','Banner (950 X 200)',['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::file('image',['class'=>'form-control input-sm input-required'])!!}
+    </div>
+</div>
+
+@if(isset($result->path_thumbnail))
+    <div class="form-group">
+        <div class="col-sm-2 text-right"><label>Current Thumbnail</label></div>
+        <div class="col-sm-10">
+            <img src="{{ asset($result->path_thumbnail) }}" width="150px" />
+        </div>
+    </div>
+@endif
+
+<div class="form-group">
+    {!! Form::label('thumbnail','Thumbnail (300 X 120)',['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::file('thumbnail',['class'=>'form-control input-sm input-required'])!!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('highlight',trans('custom.highlight'),['class'=>'control-label col-sm-2']) !!}
     <div class="col-sm-10">
-        {!! Form::textarea('highlight',old('highlight'),['class'=>'form-control input-sm','rows'=>'3'])!!}
+        {!! Form::text('highlight',old('highlight'),['class'=>'form-control input-sm','rows'=>'3'])!!}
     </div>
 </div>
 
@@ -38,11 +63,28 @@
     </div>
 </div>
 
+<hr />
+
+<div class="form-group">
+
+    {!! Form::label('child_display_category',trans('custom.child_display_category'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">{!! Form::select('child_display_category', $childDisplayArr , null,['class'=>'form-control input-sm input-required'])!!}</div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('child_page_id',trans('custom.child_page'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">{!! Form::select('child_page_id[]', $pagesArr , null,['class'=>'form-control input-sm input-required multi-select','multiple'=>'multiple'])!!}</div>
+</div>
+
+
+
 <div class="form-group">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">{!! Form::submit($type == 'create' ? trans('custom.create') : trans('custom.edit'),['class'=>'btn btn-primary btn-block'])!!}</div>
     <div class="col-sm-2">{!! link_to_route('admin.page.index',trans('custom.cancel'),[],['class'=>'btn btn-block btn-danger']) !!}</div>
 </div>
+
+
 
 <script src="{{ asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
 <script type="text/javascript">

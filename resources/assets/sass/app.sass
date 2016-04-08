@@ -185,43 +185,53 @@ h1
     span
       color: $main-color
       font-size: 1.2em
-
-
-.highlight-box-black
-  .col-sm-3
-    padding: 0 5px
-  .item-container
+  .item-black
     background-color: #000
     padding: 1px
-    margin: 0 auto 20px
-    color: #fff
+    color: $dark-gray-color
     img
+      padding: 0
       opacity: 0.8
       filter: alpha(opacity=80) /* For IE8 and earlier */
-    .content
+    h2
+      font-size: 1.1em
+      padding: 10px 10px 5px
+      margin: 0
+      text-transform: uppercase
+    p
+      padding: 0 10px
+      font-size: .9em
+      line-height: 1.1em
       color: $dark-gray-color
-      padding: 10px
-      h4
-        font-family: $style-font
-        text-transform: uppercase
-        a:hover
-          color: #fff
-      p
-        font-size: .9em
-        height: 70px
-      a
-        font-size: .8em
-        &:hover
-          color: $main-color
+    .more-link
+      text-align: right
+      padding: 5px 8px
+      font-size: .8em
     &:hover img
       opacity: 1
       filter: alpha(opacity=100) /* For IE8 and earlier */
-    &:hover .content
-      color: #fff
-    &:hover h4 a
-      color: #fff
-    &:hover a
+    &:hover .more-link
       color: $main-color
+    &:hover h2
+      color: #fff
+    &:hover p
+      color: #fff
+  .item-event
+    border-bottom: 1px dotted $dark-gray-color
+    h2
+      font-size: 1.6em
+      margin-bottom: 5px
+      font-weight: bold
+      a:hover
+        color: $dark-main-color
+    p
+      padding-top: 3px
+      line-height: 1.1em
+.activity-date
+  color: $gray-color
+  font-style: italic
+    
+
 
 .news-bar
   background-color: #dfdfdf
@@ -310,7 +320,22 @@ h1
   .content
     background-color: $main-color
     padding: 10px
-
+    height: 255px
+.contact-us-info-bar
+  margin: 10px 0
+  .col-sm-3
+    margin: 10px 0
+  table 
+    h4
+      margin-top: 0
+      text-align: center
+      font-family: $style-font
+      font-weight: bold
+      font-size: 1.2em
+    tr td
+      padding: 3px 5px
+.border-right-dash
+  border-right: 1px dashed $gray-color
 //banner
 .carousel
   .carousel-control
@@ -369,6 +394,7 @@ h1
 .quick-link-bar
   background-color: #eee
   padding: 20px 0 40px
+  margin: 0
   h4
     font-family: $style-font
     color: $dark-gray-color
@@ -543,9 +569,10 @@ h1
 
   .mini-nav a
     font-size: .8em !important
-  .carousel-indicators
-    top: 10px
-    right: 20px !important
+  .carousel
+    .carousel-indicators
+      top: 10px
+      right: 15px !important
   #nav-logo
     width: 130px !important
   .follow-bar
@@ -560,14 +587,9 @@ h1
         border-bottom: none
   .quick-link-bar
     text-align: center
-  .highlight-box-special .item-container .content p
-    height: auto
   .highlight-box
     padding: 0
     margin: 0
-  .item
-    padding: 15px
-    margin: 0 auto
   .item-green
     padding-top: 10px !important
     text-align: left !important
@@ -578,3 +600,10 @@ h1
     border-bottom: 1px dashed $dark-gray-color
     padding-bottom: 10px
     margin-bottom: 10px
+  .border-right-dash
+    border-right: none
+    border-bottom: 1px dashed $gray-color
+  .contact-us-info-bar table h4
+    text-align: left
+  .contact-info-box .content
+    height: auto

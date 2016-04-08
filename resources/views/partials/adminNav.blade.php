@@ -30,9 +30,10 @@
                     <a href="{{route('admin.home')}}"><i class="fa fa-dashboard fa-fw"></i>&nbsp;{{trans('custom.dashboard')}}</a>
                 </li>
 
-                {!! navIconLinkWithPermission('admin_pages','admin.page.index','fa-info-circle',trans('custom.pages')) !!}
-                {!! navIconLinkWithPermission('admin_menu','admin.menu.index','fa-users',trans('custom.menu')) !!}
-                {!! navIconLinkWithPermission('admin_banner','admin.banner.index','fa-users',trans('custom.banners')) !!}
+                {!! navIconLinkWithPermission('admin_pages','admin.page.index','fa-paint-brush',trans('custom.pages')) !!}
+                {!! navIconLinkWithPermission('admin_news_events','admin.ne.index','fa-newspaper-o',trans('custom.news_event')) !!}
+                {!! navIconLinkWithPermission('admin_menu','admin.menu.index','fa-ellipsis-h',trans('custom.menu')) !!}
+                {!! navIconLinkWithPermission('admin_banner','admin.banner.index','fa-clone',trans('custom.banners')) !!}
                 {!! navIconLinkWithPermission('admin_users','admin.user.index','fa-users',trans('custom.users')) !!}
 
                 @if(auth()->user()->hasRole(env('SUPER_ADMIN_ROLE_NAME')) || auth()->user()->can('admin_authorization'))
@@ -44,9 +45,6 @@
                         </ul>
                     </li>
                 @endif
-
-
-                {{--{!! navIconLinkWithPermission('gc_make_code','gcMakeCode','fa-plus-square',trans('custom.menu.generate_giftcard')) !!}--}}
 
             </ul>
         </div>
