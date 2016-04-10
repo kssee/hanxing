@@ -49,15 +49,14 @@ elixir(function (mix) {
         .copy($bowerPath + "select2/dist/js/select2.min.js", "resources/assets/js/vendor/select2.js")
         .copy($bowerPath + "select2/dist/css/select2.min.css", "resources/assets/css/vendor/select2.css")
 
-        //.copy($bowerPath + "ckeditor/adapters", "public/ckeditor/adapters")
-        //.copy($bowerPath + "ckeditor/lang", "public/ckeditor/lang")
-        //.copy($bowerPath + "ckeditor/plugins", "public/ckeditor/plugins")
-        //.copy($bowerPath + "ckeditor/skins", "public/ckeditor/skins")
-        //.copy($bowerPath + "ckeditor/ckeditor.js", "public/ckeditor/ckeditor.js")
-        //.copy($bowerPath + "ckeditor/config.js", "public/ckeditor/config.js")
-        //.copy($bowerPath + "ckeditor/contents.css", "public/ckeditor/contents.css")
-        //.copy($bowerPath + "ckeditor/styles.js", "public/ckeditor/styles.js")
-        //.copy("resources/assets/js/ckeditorCustom.js","public/ckeditor/ckeditorCustom.js")
+        .copy($bowerPath + "ckeditor/adapters", "public/ckeditor/adapters")
+        .copy($bowerPath + "ckeditor/lang", "public/ckeditor/lang")
+        .copy($bowerPath + "ckeditor/plugins", "public/ckeditor/plugins")
+        .copy($bowerPath + "ckeditor/skins", "public/ckeditor/skins")
+        .copy($bowerPath + "ckeditor/ckeditor.js", "public/ckeditor/ckeditor.js")
+        .copy($bowerPath + "ckeditor/config.js", "public/ckeditor/config.js")
+        .copy($bowerPath + "ckeditor/contents.css", "public/ckeditor/contents.css")
+        .copy($bowerPath + "ckeditor/styles.js", "public/ckeditor/styles.js")
 
         .styles([
             'vendor/normalize.css',

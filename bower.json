@@ -28,7 +28,7 @@
     "metisMenu": "~2.2.0",
     "morris.js": "morrisjs#~0.5.1",
     "nprogress": "~0.2.0",
-    "ckeditor": "~4.5.6",
+    "ckeditor": "#full/4.5.8",
     "jquery-confirm2": "craftpip/jquery-confirm#~2.5.0",
     "notie": "*",
     "select2": "~4.0.2"
