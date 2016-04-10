@@ -73,7 +73,7 @@
 		{
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, [
-				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:20480',
+				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:24480',
 				'title'     => 'required|max:255',
 				'category'  => 'required|max:100',
 				'link'      => 'required_without:file|url|max:255',
@@ -111,7 +111,7 @@
 		{
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, [
-				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:20480',
+				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:24480',
 				'title'     => 'required|max:255',
 				'category'  => 'required|max:100',
 				'link'      => 'required_without:file|url|max:255',
