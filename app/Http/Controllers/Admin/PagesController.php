@@ -93,6 +93,7 @@
 			$childDisplayArr = $this->getCategory('child');
 			$pagesArr        = Pages::lists('title', 'id');
 			$pagesArr->put('0', '-- None --');
+			$pagesArr = $pagesArr->sort();
 
 			return view('admin.pages.create', compact('page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
@@ -175,6 +176,7 @@
 			$childDisplayArr = $this->getCategory('child');
 			$pagesArr        = Pages::where('id', '<>', $id)->lists('title', 'id');
 			$pagesArr->put('0', '-- None --');
+			$pagesArr = $pagesArr->sort();
 
 			return view('admin.pages.edit', compact('result', 'page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
