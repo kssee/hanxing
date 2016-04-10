@@ -109,7 +109,7 @@
 			{
 				$quick_link = [
 					trans('custom.why_hanxing')          => route('pages', ['slug' => 'why-hanxing']),
-					trans('custom.scholarship_loan')     => route('pages', ['slug' => 'scholarship-loan']),
+					trans('custom.scholarship_loan')     => route('pages', ['slug' => 'scholarships-study-loan-ptptn']),
 					trans('custom.campus_life')          => route('pages', ['slug' => 'campus-life']),
 					trans('custom.partner_universities') => route('pages', ['slug' => 'partner-universities']),
 					trans('custom.online_register')      => route('onlineRegister'),

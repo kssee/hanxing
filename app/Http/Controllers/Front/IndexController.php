@@ -47,7 +47,7 @@
 			$othersList[] = [
 				'title'          => trans('custom.scholarship'),
 				'title_zh'       => trans('custom.scholarship'),
-				'slug'           => 'scholarship',
+				'slug'           => 'scholarships-study-loan-ptptn',
 				'highlight'      => '',
 				'txt'            => trans('custom.let_us_help'),
 				'path_thumbnail' => 'images/t.jpg',
