@@ -17,6 +17,7 @@
             @endforeach
             <li class="active">{{$breadcrumb['active']}}</li>
         </ol>
+
     @endif
 @endif
 

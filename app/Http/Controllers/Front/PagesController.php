@@ -17,7 +17,18 @@
 				$child_pages = Pages::where('published', '1')->whereIn('id', $child_id)->orderBy('title')->get();
 			}
 
-			return view('front.pages', compact('page', 'child_pages'));
+			$page_title = $page->title;
+
+			return view('front.pages', compact('page', 'child_pages', 'page_title'));
+		}
+
+		public function popup($id)
+		{
+			$page = Pages::where('id', $id)->where('published', '1')->firstOrFail();
+
+			$page_title = $page->title;
+
+			return view('front.popupPages', compact('page', 'page_title'));
 		}
 
 	}

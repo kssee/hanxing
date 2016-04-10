@@ -6,6 +6,13 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('title_zh',trans('custom.chinese_name'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::text('title_zh',old('title_zh'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('category',trans('custom.category'),['class'=>'control-label col-sm-2']) !!}
     <div class="col-sm-10">{!! Form::select('category', $categoryArr , null,['class'=>'form-control input-sm input-required'])!!}</div>
 </div>
@@ -26,7 +33,7 @@
 
 @if(isset($result->path_thumbnail))
     <div class="form-group">
-        <div class="col-sm-2 text-right"><label>Current News Image</label></div>
+        <div class="col-sm-2 text-right"><label>Current Image</label></div>
         <div class="col-sm-10">
             <img src="{{ asset($result->path_thumbnail) }}" width="150px" />
         </div>

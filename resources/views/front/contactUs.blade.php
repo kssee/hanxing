@@ -4,7 +4,7 @@
 @stop
 
 @section('content')
-
+    @include('partials.breadcrumb')
     <div class="row">
         <div class="col-sm-8">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31872.286592708893!2d101.732433!3d3.085114!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12bb13e64e73a78a!2sOne+World+HanXing+College+of+Journalism+and+Communication!5e0!3m2!1sen!2sus!4v1460116233115"

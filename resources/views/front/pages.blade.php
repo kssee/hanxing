@@ -9,18 +9,26 @@
     @endif
     @include('partials.breadcrumb')
 
-    <h1>{{$page->title}}</h1>
+    <h1>{{trans()->locale() == 'en' ? $page->title : $page->title_zh}}</h1>
     <br/>
     {!! $page->page_content !!}
 
+    @if($page->popup_page_id)
+        <div class="text-center">
+            <a href="{{route('popupPages',['id'=>$page->popup_page_id])}}" class="btn btn-more iframe">{{trans()->locale() == 'en' ? $page->popup_title : $page->popup_title_zh}}</a>
+        </div>
+    @endif
+
+    <hr />
+
     @if(isset($child_pages) && count($child_pages))
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 @foreach ($child_pages->chunk(4) as $row)
                     <div class="highlight-box row">
                         @foreach ($row as $entry)
                             <div class="col-sm-3">
-                                @include('partials.itembox',['category'=>$page->child_display_category,'txt'=>'Find out more >','route'=>'pages'])
+                                @include('partials.itembox',['category'=>$page->child_display_category,'txt'=>trans('custom.read_more').' >','route'=>'pages'])
                             </div>
                         @endforeach
                     </div>

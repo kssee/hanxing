@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>No Found.</title>
+        <title>{{trans('custom.page_no_found')}}</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -41,9 +41,10 @@
         <div class="container">
             <div class="content">
                 <img src="{{asset('images/logos/logo.png')}}" width="150px" />
-                <div class="title">Page or file no found.</div>
-                {!! link_to_route('index','Back To Home Page') !!}
+                <div class="title">{{trans('custom.page_no_found')}}</div>
+                {!! link_to_route('index',trans('custom.back_to_home')) !!}
             </div>
         </div>
     </body>
 </html>
+

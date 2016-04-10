@@ -38,7 +38,7 @@
 					$menu_layer2 = Menu::where('parent_id', $entry->id)->where('layer', 2)->orderBy('name')->get();
 					foreach($menu_layer2 as $entry_sub)
 					{
-						$sub_menu[] = ['name' => $entry_sub->name, 'path' => $entry_sub->path];
+						$sub_menu[] = ['name' => trans()->locale() == 'en' ? $entry_sub->name : $entry_sub->name_zh, 'path' => $entry_sub->path];
 						if($_SERVER['REQUEST_URI'] == '/' . $entry_sub->path)
 						{
 							$active_id = $entry_sub->parent_id;
@@ -52,7 +52,7 @@
 
 					$menu[] = [
 						'id'        => $entry->id,
-						'name'      => $entry->name,
+						'name'      => trans()->locale() == 'en' ? $entry->name : $entry->name_zh,
 						'path'      => $entry->path,
 						'active_id' => $active_id,
 						'sub_menu'  => $sub_menu
@@ -108,12 +108,12 @@
 			view()->composer('partials.quickLink', function ($view)
 			{
 				$quick_link = [
-					'Why HANXING?'         => route('pages', ['slug' => 'about']),
-					'Scholarship & Loan'   => route('pages', ['slug' => 'about']),
-					'Campus Life'          => route('pages', ['slug' => 'about']),
-					'Partner Universities' => route('pages', ['slug' => 'about']),
-					'Online Register'      => route('onlineRegister'),
-					'Contact Us'           => route('contactUs'),
+					trans('custom.why_hanxing')          => route('pages', ['slug' => 'why-hanxing']),
+					trans('custom.scholarship_loan')     => route('pages', ['slug' => 'scholarship-loan']),
+					trans('custom.campus_life')          => route('pages', ['slug' => 'campus-life']),
+					trans('custom.partner_universities') => route('pages', ['slug' => 'partner-universities']),
+					trans('custom.online_register')      => route('onlineRegister'),
+					trans('custom.contact_us')           => route('contactUs'),
 				];
 
 				$programmes      = Pages::where('category', 'programmes')->where('published', 1)->orderBy('title')->get();
@@ -121,7 +121,15 @@
 
 				foreach($programmes as $entry)
 				{
-					$programme_links[ $entry->title ] = route('pages', ['slug' => $entry->slug]);
+					if(trans()->locale() == 'en')
+					{
+						$key = $entry->title;
+					}
+					else
+					{
+						$key = $entry->title_zh;
+					}
+					$programme_links[ $key ] = route('pages', ['slug' => $entry->slug]);
 				}
 
 				$links['quick_links']     = $quick_link;

@@ -12,3 +12,6 @@ composer.lock
 /public/images/banners
 /public/images/news
 /public/images/pages
+/public/images/showcases
+/public/files/showcases
+/storage/files/student_files

@@ -20,7 +20,7 @@
                             <div class="col-sm-3">
                                 <div class="item item-light">
                                     <div class="cursor-pointer" onclick="{!!"location.href='" . route('pages',['slug'=>$entry['slug']]) . "'"!!}">
-                                        <h2 class="font-large">{{$entry['title']}}</h2>
+                                        <h2 class="font-large">{{trans()->locale() == 'en' ? $entry['title'] : $entry['title_zh']}}</h2>
                                         @if(!is_null($entry['path_thumbnail']) && !empty($entry['path_thumbnail']))
                                             <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image hidden-xs"/>
                                         @endif
@@ -92,13 +92,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             @if(count($latest_news))
-                                <h3>{!! link_to_route('viewNews',$latest_news->title,['slug'=>$latest_news->slug]) !!}</h3>
+                                <h3>{!! link_to_route('viewNews',str_limit(trans()->locale() == 'en' ? $latest_news->title : $latest_news->title_zh,30),['slug'=>$latest_news->slug]) !!}</h3>
                             @endif
                         </div>
                         <div class="col-md-6">
                             @if(isset($news) && count($news))
                                 @foreach($news as $entry)
-                                    <h4>{!! link_to_route('viewNews',$entry->title,['slug'=>$entry->slug]) !!}</h4>
+                                    <h4>{!! link_to_route('viewNews',str_limit(trans()->locale() == 'en' ? $entry->title : $entry->title_zh,50),['slug'=>$entry->slug]) !!}</h4>
                                 @endforeach
                             @endif
                         </div>
@@ -125,7 +125,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <h4>{!! link_to_route('viewEvent',$entry->title,['slug'=>$entry->slug]) !!}</h4>
+                                                <h4>{!! link_to_route('viewEvent',str_limit(trans()->locale() == 'en' ? $entry->title : $entry->title_zh,40),['slug'=>$entry->slug]) !!}</h4>
                                             </td>
                                         </tr>
                                     </table>

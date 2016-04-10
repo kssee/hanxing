@@ -6,8 +6,15 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('title_zh',trans('custom.chinese_name'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::text('title_zh',old('title_zh'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('category',trans('custom.category'),['class'=>'control-label col-sm-2']) !!}
-    <div class="col-sm-10">{!! Form::select('category', $categoryArr , null,['class'=>'form-control input-sm input-required'])!!}</div>
+    <div class="col-sm-10">{!! Form::select('category', $categoryArr , NULL,['class'=>'form-control input-sm input-required'])!!}</div>
 </div>
 
 <div class="form-group">
@@ -21,7 +28,7 @@
     <div class="form-group">
         <div class="col-sm-2 text-right"><label>Current Banner</label></div>
         <div class="col-sm-10">
-            <img src="{{ asset($result->path_banner) }}" class="responsive-image" />
+            <img src="{{ asset($result->path_banner) }}" class="responsive-image"/>
         </div>
     </div>
 @endif
@@ -37,7 +44,7 @@
     <div class="form-group">
         <div class="col-sm-2 text-right"><label>Current Thumbnail</label></div>
         <div class="col-sm-10">
-            <img src="{{ asset($result->path_thumbnail) }}" width="150px" />
+            <img src="{{ asset($result->path_thumbnail) }}" width="150px"/>
         </div>
     </div>
 @endif
@@ -63,27 +70,44 @@
     </div>
 </div>
 
-<hr />
+<hr/>
 
 <div class="form-group">
-
     {!! Form::label('child_display_category',trans('custom.child_display_category'),['class'=>'control-label col-sm-2']) !!}
-    <div class="col-sm-10">{!! Form::select('child_display_category', $childDisplayArr , null,['class'=>'form-control input-sm input-required'])!!}</div>
+    <div class="col-sm-10">{!! Form::select('child_display_category', $childDisplayArr , NULL,['class'=>'form-control input-sm input-required'])!!}</div>
 </div>
 
 <div class="form-group">
     {!! Form::label('child_page_id',trans('custom.child_page'),['class'=>'control-label col-sm-2']) !!}
-    <div class="col-sm-10">{!! Form::select('child_page_id[]', $pagesArr , null,['class'=>'form-control input-sm input-required multi-select','multiple'=>'multiple'])!!}</div>
+    <div class="col-sm-10">{!! Form::select('child_page_id[]', $pagesArr , NULL,['class'=>'form-control input-sm input-required multi-select','multiple'=>'multiple'])!!}</div>
 </div>
 
+<hr/>
+<div class="form-group">
+    {!! Form::label('popup_page_id',trans('custom.popup_page'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">{!! Form::select('popup_page_id', $pagesArr , NULL,['class'=>'form-control input-sm input-required'])!!}</div>
+</div>
+<div class="form-group">
+    {!! Form::label('popup_title',trans('custom.popup_page_title'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::text('popup_title',old('popup_title'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
 
+<div class="form-group">
+    {!! Form::label('popup_title_zh',trans('custom.popup_page_chinese_name'),['class'=>'control-label col-sm-2']) !!}
+    <div class="col-sm-10">
+        {!! Form::text('popup_title_zh',old('popup_title_zh'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<hr/>
 
 <div class="form-group">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">{!! Form::submit($type == 'create' ? trans('custom.create') : trans('custom.edit'),['class'=>'btn btn-primary btn-block'])!!}</div>
     <div class="col-sm-2">{!! link_to_route('admin.page.index',trans('custom.cancel'),[],['class'=>'btn btn-block btn-danger']) !!}</div>
 </div>
-
 
 
 <script src="{{ asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>

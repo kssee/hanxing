@@ -17,15 +17,16 @@
 			// Programmes bar
 			$programmes        = Pages::where('category', 'programmes')->where('published', 1)->orderBy('title')->get();
 			$programmesList[0] = [
-				'title'          => trans('custom.apply_now'),
-				'slug'           => 'onlineRegister',
-				'special'        => true,
+				'title'   => trans('custom.apply_now'),
+				'slug'    => 'onlineRegister',
+				'special' => true,
 			];
 
 			foreach($programmes as $entry)
 			{
 				$programmesList[] = [
 					'title'          => $entry->title,
+					'title_zh'       => $entry->title_zh,
 					'slug'           => $entry->slug,
 					'highlight'      => $entry->highlight,
 					'path_thumbnail' => $entry->path_thumbnail,
@@ -36,6 +37,7 @@
 			// Others bar
 			$othersList[] = [
 				'title'          => trans('custom.why_choose_us'),
+				'title_zh'       => trans('custom.why_choose_us'),
 				'slug'           => 'why-hanxing',
 				'highlight'      => '',
 				'txt'            => trans('custom.our_reputation'),
@@ -44,6 +46,7 @@
 
 			$othersList[] = [
 				'title'          => trans('custom.scholarship'),
+				'title_zh'       => trans('custom.scholarship'),
 				'slug'           => 'scholarship',
 				'highlight'      => '',
 				'txt'            => trans('custom.let_us_help'),
@@ -52,6 +55,7 @@
 
 			$othersList[] = [
 				'title'          => trans('custom.campus_life'),
+				'title_zh'       => trans('custom.campus_life'),
 				'slug'           => 'campus-life',
 				'highlight'      => '',
 				'txt'            => trans('custom.live_with_us'),
@@ -59,7 +63,7 @@
 			];
 
 			$othersList[] = [
-				'special'        => true,
+				'special' => true,
 			];
 
 			// news events bar

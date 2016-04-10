@@ -32,9 +32,9 @@ $(document).ready(function () {
 
     if ( $( ".iframe" ).length ) {
         @if(Agent::isDesktop())
-            $(".iframe").colorbox({iframe:true, width:"80%", height:"94%", overlayClose:false, closeButton:true, escKey:false});
+            $(".iframe").colorbox({iframe:true, width:"80%", height:"94%", closeButton:true});
         @else
-            $(".iframe").colorbox({iframe:true, width:"98%", height:"80%", overlayClose:false, closeButton:true, escKey:false});
+            $(".iframe").colorbox({iframe:true, width:"98%", height:"80%", closeButton:true});
         @endif
         }
 
@@ -47,4 +47,5 @@ $(document).ready(function () {
     @endif
 
     @yield('jsFunctions')
+
 });

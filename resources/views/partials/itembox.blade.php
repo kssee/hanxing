@@ -9,7 +9,7 @@
         ">
     <div class="cursor-pointer" onclick="{!!"location.href='" . route($route,['slug'=>$entry['slug']]) . "'"!!}">
         @if($category == 1)
-            <h2>{{$entry['title']}}</h2>
+            <h2>{{trans()->locale() == 'en' ? $entry['title'] : $entry['title_zh']}}</h2>
 
             @if(!is_null($entry['path_thumbnail']) && !empty($entry['path_thumbnail']))
                 <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image hidden-xs"/>
@@ -19,7 +19,7 @@
                 <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image hidden-xs"/>
             @endif
 
-            <h2>{{$entry['title']}}</h2>
+                <h2>{{trans()->locale() == 'en' ? $entry['title'] : $entry['title_zh']}}</h2>
         @endif
 
         @if(!is_null($entry['highlight']) && !empty($entry['highlight']) && $category != 2)

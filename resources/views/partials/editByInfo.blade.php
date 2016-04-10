@@ -14,5 +14,6 @@
             &nbsp; | &nbsp;
             {{trans('custom.by')}} <u>{{$name}}</u>
         @endif
+
     </i>
 </div>

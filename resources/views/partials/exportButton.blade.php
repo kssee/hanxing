@@ -5,4 +5,5 @@
         <li>{!! link_to_route($route,'Excel 5 (xls)',array_add($params, 'format', 'xls'))!!}</li>
         <li>{!! link_to_route($route,'CSV',array_add($params, 'format', 'csv'))!!}</li>
     </ul>
+
 </div>

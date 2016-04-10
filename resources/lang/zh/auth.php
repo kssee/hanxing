@@ -13,8 +13,8 @@
 		|
 		*/
 
-		'failed'             => 'Incorrect email or password.',
-		'login_as_admin_acc' => 'You must login as admin account to access this page.',
-		'throttle'           => 'Too many login attempts. Please try again in :seconds seconds.',
+		'failed'             => '电邮或密码错误',
+		'login_as_admin_acc' => '您没有访问此页面的权限。',
+		'throttle'           => '过多尝试，请在:seconds后尝试。',
 
 	];

@@ -46,7 +46,7 @@
 			$query = NewsEvents::whereBetween('created_at', [$from->toDateTimeString(), $to->toDateTimeString()]);
 			if($search != '')
 			{
-				$search_available_field = ['title'];
+				$search_available_field = ['title', 'title_zh', 'cre_by'];
 				search_to_query($query, $search, $search_available_field, $st);
 			}
 			else
@@ -114,6 +114,7 @@
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, [
 				'title'         => 'required|max:255',
+				'title_zh'      => 'required|max:255',
 				'category'      => 'required|alpha',
 				'highlight'     => 'max:255',
 				'published'     => 'required|boolean',
@@ -124,6 +125,7 @@
 			$news_event                = new NewsEvents();
 			$news_event->slug          = str_slug($request->title);
 			$news_event->title         = $request->title;
+			$news_event->title_zh      = $request->title_zh;
 			$news_event->category      = $request->category;
 			$news_event->highlight     = $request->highlight;
 			$news_event->published     = $request->published;
@@ -175,6 +177,7 @@
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, [
 				'title'         => 'required|max:255',
+				'title_zh'      => 'required|max:255',
 				'category'      => 'required|alpha',
 				'highlight'     => 'max:255',
 				'published'     => 'required|boolean',
@@ -185,6 +188,7 @@
 			$news_event                = NewsEvents::findOrFail($id);
 			$news_event->slug          = str_slug($request->title);
 			$news_event->title         = $request->title;
+			$news_event->title_zh      = $request->title_zh;
 			$news_event->category      = $request->category;
 			$news_event->highlight     = $request->highlight;
 			$news_event->published     = $request->published;

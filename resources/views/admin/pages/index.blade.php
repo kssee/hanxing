@@ -13,6 +13,7 @@
                 <th width="100px"></th>
                 <th width="150px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
                 <th>{!!sortingLink(trans('custom.title'),'b')!!}</th>
+                <th>{{trans('custom.chinese_name')}}</th>
                 <th>{{trans('custom.created_by')}}</th>
             </tr>
             </thead>
@@ -34,7 +35,8 @@
                         @endif
                     </td>
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>
-                    <td>{{ is_null($entry->title)?"-":$entry->title }}</td>
+                    <td>{{ $entry->title }}</td>
+                    <td>{{ $entry->title_zh }}</td>
                     <td>{{ $entry->cre_by }}</td>
                 </tr>
             @endforeach

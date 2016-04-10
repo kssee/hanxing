@@ -17,29 +17,35 @@
 
 			foreach($programmes as $entry)
 			{
-				$programmeList[ $entry->title ] = $entry->title;
+				if(trans()->locale() == 'en')
+				{
+					$name = $entry->title;
+				}
+				else
+				{
+					$name = $entry->title_zh;
+				}
+				$programmeList[ $entry->title ] = $name;
 			}
 
 			$monthList = [
 				''          => trans('custom.select_a_month'),
-				'January'   => 'January',
-				'February'  => 'February',
-				'March'     => 'March',
-				'April'     => 'April',
-				'May'       => 'May',
-				'June'      => 'June',
-				'July'      => 'July',
-				'August'    => 'August',
-				'September' => 'September',
+				'January'   => trans('custom.january'),
+				'February'  => trans('custom.february'),
+				'March'     => trans('custom.march'),
+				'April'     => trans('custom.april'),
+				'May'       => trans('custom.may'),
+				'June'      => trans('custom.june'),
+				'July'      => trans('custom.july'),
+				'August'    => trans('custom.august'),
+				'September' => trans('custom.september'),
 			];
 
 			$contacted_method = [
-				''             => trans('custom.contacted_method'),
-				'Phone'        => 'Phone',
-				'Mobile'       => 'Mobile',
-				'Social Media' => 'Social Media',
-				'WhatsApp'     => 'WhatsApp',
-				'Email'        => 'Email',
+				''         => trans('custom.contacted_method'),
+				'Mobile'   => trans('custom.mobile'),
+				'WhatsApp' => trans('custom.whatsapp'),
+				'Email'    => trans('custom.email'),
 			];
 
 			$current_year = date('Y');
@@ -51,7 +57,8 @@
 				$yearList[ $i ] = $i;
 			}
 
-			return view('front.onlineRegister', compact('programmeList', 'monthList', 'yearList', 'contacted_method'));
+			$page_title = trans('custom.online_register');
+			return view('front.onlineRegister', compact('programmeList', 'monthList', 'yearList', 'contacted_method','page_title'));
 		}
 
 		public function sendMail(Request $request)

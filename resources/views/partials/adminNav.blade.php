@@ -30,23 +30,34 @@
                     <a href="{{route('admin.home')}}"><i class="fa fa-dashboard fa-fw"></i>&nbsp;{{trans('custom.dashboard')}}</a>
                 </li>
 
+                {!! navIconLinkWithPermission('admin_menu','admin.menu.index','fa-ellipsis-h',trans('custom.menu')) !!}
+                {!! navIconLinkWithPermission('admin_banners','admin.banner.index','fa-clone',trans('custom.banners')) !!}
                 {!! navIconLinkWithPermission('admin_pages','admin.page.index','fa-paint-brush',trans('custom.pages')) !!}
                 {!! navIconLinkWithPermission('admin_news_events','admin.ne.index','fa-newspaper-o',trans('custom.news_event')) !!}
-                {!! navIconLinkWithPermission('admin_menu','admin.menu.index','fa-ellipsis-h',trans('custom.menu')) !!}
-                {!! navIconLinkWithPermission('admin_banner','admin.banner.index','fa-clone',trans('custom.banners')) !!}
-                {!! navIconLinkWithPermission('admin_users','admin.user.index','fa-users',trans('custom.users')) !!}
+                {!! navIconLinkWithPermission('admin_student_showcases','admin.sshowcase.index','fa-video-camera',trans('custom.student_showcases')) !!}
+                {!! navIconLinkWithPermission('admin_student_files','admin.sfiles.index','fa-file-text',trans('custom.student_files')) !!}
 
                 @if(auth()->user()->hasRole(env('SUPER_ADMIN_ROLE_NAME')) || auth()->user()->can('admin_authorization'))
                     <li>
                         <a href="#"><i class="fa fa-key fa-fw"></i>&nbsp;{{trans('custom.authorization')}}<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
+                            {!! navLinkWithPermission('admin_users','admin.user.index',trans('custom.users')) !!}
                             {!! navLinkWithPermission('admin_authorization','admin.permission.index',trans('custom.permissions')) !!}
                             {!! navLinkWithPermission('admin_authorization','admin.role.index',trans('custom.role_group')) !!}
                         </ul>
                     </li>
                 @endif
-
             </ul>
+            <br/>
+            <div class="text-right">
+                @if(trans()->locale() == 'en')
+                    <small>English</small> . {!! link_to_route('setLanguage','中文',['lg'=>'zh']) !!}
+                @else
+                    {!! link_to_route('setLanguage','English',['lg'=>'en']) !!} .
+                    <small>中文</small>
+                @endif
+                &nbsp;&nbsp;
+            </div>
         </div>
     </div>
 

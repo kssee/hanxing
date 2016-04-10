@@ -47,4 +47,5 @@
             </a>
         @endif
     </div>
+
 @endif

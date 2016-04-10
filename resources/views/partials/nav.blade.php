@@ -7,7 +7,13 @@
                 {!! link_to_route('setLanguage','English',['lg'=>'en']) !!} . <small>中文</small>
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                {!! link_to_route('student',trans('custom.student')) !!} &nbsp;&nbsp;&nbsp;{!! link_to_route('alumni',trans('custom.alumni')) !!}
+                @if(session()->has('student_logged_in') && session('student_logged_in') == true)
+                    {!! link_to_route('studentLogout',trans('custom.logout_student')) !!}
+                @else
+                    {!! link_to_route('student',trans('custom.student')) !!}
+                @endif
+                &nbsp;&nbsp;&nbsp;
+                {!! link_to_route('alumni',trans('custom.alumni')) !!}
         </div>
         <table width="100%">
             <tr>

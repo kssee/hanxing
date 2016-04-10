@@ -8,6 +8,10 @@
 	class ContactUsController extends Controller {
 		public function index()
 		{
-			return view('front.contactUs');
+			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
+			$breadcrumb_overwrite['active'] = trans('custom.student_files');
+
+			$page_title = trans('custom.contact_us');
+			return view('front.contactUs',compact('page_title','breadcrumb_overwrite'));
 		}
 	}

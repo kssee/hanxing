@@ -11,11 +11,12 @@
             <tr>
                 <th width="20px"></th>
                 <th width="80px"></th>
-                <th width="150px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
-                <th>{!!sortingLink(trans('custom.activity_date'),'c')!!}</th>
+                <th width="110px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
+                <th width="110px">{!!sortingLink(trans('custom.activity_date'),'c')!!}</th>
                 <th>{!!sortingLink(trans('custom.title'),'b')!!}</th>
+                <th>{{trans('custom.chinese_name')}}</th>
                 <th>{!!sortingLink(trans('custom.category'),'d')!!}</th>
-                <th width="20%">{{trans('custom.image')}}</th>
+                <th width="10%">{{trans('custom.image')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>
                     <td>{{ $entry->activity_date->format('Y-m-d') }}</td>
                     <td>{{ $entry->title }}</td>
+                    <td>{{ $entry->title_zh }}</td>
                     <td>{{ ucfirst($entry->category) }}</td>
                     <td>
                         @if(!is_null($entry->path_thumbnail))

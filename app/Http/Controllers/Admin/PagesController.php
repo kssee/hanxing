@@ -48,7 +48,7 @@
 			$query = Pages::whereBetween('created_at', [$from->toDateTimeString(), $to->toDateTimeString()]);
 			if($search != '')
 			{
-				$search_available_field = ['title'];
+				$search_available_field = ['title', 'title_zh', 'cre_by'];
 				search_to_query($query, $search, $search_available_field, $st);
 			}
 			else
@@ -107,8 +107,12 @@
 		{
 			$request->merge(array_map('trim', $request->except('child_page_id')));
 			$this->validate($request, ['title'                  => 'required|max:255',
+			                           'title_zh'               => 'required|max:255',
 			                           'category'               => 'required|alpha',
 			                           'highlight'              => 'max:255',
+			                           'popup_page_id'          => 'exists:pages,id',
+			                           'popup_title'            => 'max:20|min:3',
+			                           'popup_title_zh'         => 'max:10|min:3',
 			                           'published'              => 'required|boolean',
 			                           'image'                  => 'mimes:jpeg,jpg,png,gif|max:1024',
 			                           'thumbnail'              => 'mimes:jpeg,jpg,png,gif|max:1024',
@@ -119,7 +123,11 @@
 			$page                         = new Pages();
 			$page->slug                   = str_slug($request->title);
 			$page->title                  = $request->title;
+			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
+			$page->popup_page_id          = $request->popup_page_id;
+			$page->popup_title            = $request->get('popup_title', NULL);
+			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
 			$page->category               = $request->category;
 			$page->child_display_category = $request->child_display_category;
@@ -182,8 +190,12 @@
 		{
 			$request->merge(array_map('trim', $request->except('child_page_id')));
 			$this->validate($request, ['title'                  => 'required|max:255',
+			                           'title_zh'               => 'required|max:255',
 			                           'category'               => 'required|alpha',
 			                           'highlight'              => 'max:255',
+			                           'popup_page_id'          => 'exists:pages,id',
+			                           'popup_title'            => 'max:20|min:3',
+			                           'popup_title_zh'         => 'max:10|min:3',
 			                           'published'              => 'required|boolean',
 			                           'image'                  => 'mimes:jpeg,jpg,png,gif|max:1024',
 			                           'thumbnail'              => 'mimes:jpeg,jpg,png,gif|max:1024',
@@ -194,7 +206,11 @@
 			$page                         = Pages::findOrFail($id);
 			$page->slug                   = str_slug($request->title);
 			$page->title                  = $request->title;
+			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
+			$page->popup_page_id          = $request->popup_page_id;
+			$page->popup_title            = $request->get('popup_title', NULL);
+			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
 			$page->category               = $request->category;
 			$page->child_display_category = $request->child_display_category;

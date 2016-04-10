@@ -16,12 +16,13 @@
 			                    ->orderBy('activity_date', 'desc')
 			                    ->paginate(16);
 
-			$type    = 'news';
+			$type = 'news';
 
 			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
 			$breadcrumb_overwrite['active'] = trans('custom.news');
+			$page_title                     = trans('custom.news');
 
-			return view('front.newsEvents', compact('result', 'subject', 'breadcrumb_overwrite', 'type'));
+			return view('front.newsEvents', compact('result', 'subject', 'breadcrumb_overwrite', 'type', 'page_title'));
 		}
 
 		public function events(Request $request)
@@ -45,8 +46,9 @@
 
 			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
 			$breadcrumb_overwrite['active'] = trans('custom.events');
+			$page_title                     = trans('custom.events');
 
-			return view('front.newsEvents', compact('result', 'subject', 'paginate_appends', 'breadcrumb_overwrite', 'type','past'));
+			return view('front.newsEvents', compact('result', 'subject', 'paginate_appends', 'breadcrumb_overwrite', 'type', 'past', 'page_title'));
 		}
 
 		public function viewNews($slug)
@@ -59,8 +61,9 @@
 			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
 			$breadcrumb_overwrite['link'][] = [trans('custom.news') => route('news')];
 			$breadcrumb_overwrite['active'] = $result->title;
+			$page_title                     = $result->title;
 
-			return view('front.newsEventsView', compact('result', 'breadcrumb_overwrite'));
+			return view('front.newsEventsView', compact('result', 'breadcrumb_overwrite', 'page_title'));
 		}
 
 		public function viewEvent($slug)
@@ -73,7 +76,8 @@
 			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
 			$breadcrumb_overwrite['link'][] = [trans('custom.events') => route('events')];
 			$breadcrumb_overwrite['active'] = $result->title;
+			$page_title                     = $result->title;
 
-			return view('front.newsEventsView', compact('result', 'breadcrumb_overwrite'));
+			return view('front.newsEventsView', compact('result', 'breadcrumb_overwrite', 'page_title'));
 		}
 	}

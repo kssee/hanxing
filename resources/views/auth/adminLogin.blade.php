@@ -11,7 +11,15 @@
 
 @section('content')
     <div class="container">
-        <br/><br/>
+        <br/>
+        <div class="text-right">
+            @if(trans()->locale() == 'en')
+                <small>English</small> . {!! link_to_route('setLanguage','中文',['lg'=>'zh']) !!}
+            @else
+                {!! link_to_route('setLanguage','English',['lg'=>'en']) !!} .
+                <small>中文</small>
+            @endif
+        </div>
 
         <div class="text-center">
             {!! Html::image(asset('/images/logos/logo.png'),config('system_info')->name . ' Logo',['width'=>'200px']) !!}
@@ -48,3 +56,4 @@
         </div>
     </div>
 @stop
+
