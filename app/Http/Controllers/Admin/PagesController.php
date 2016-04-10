@@ -92,6 +92,7 @@
 			$categoryArr     = $this->getCategory();
 			$childDisplayArr = $this->getCategory('child');
 			$pagesArr        = Pages::lists('title', 'id');
+			$pagesArr->put('', '-- None --');
 
 			return view('admin.pages.create', compact('page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
@@ -125,7 +126,7 @@
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
-			$page->popup_page_id          = $request->get('popup_page_id',0);
+			$page->popup_page_id          = $request->get('popup_page_id', 0);
 			$page->popup_title            = $request->get('popup_title', NULL);
 			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
@@ -174,6 +175,7 @@
 			$categoryArr     = $this->getCategory();
 			$childDisplayArr = $this->getCategory('child');
 			$pagesArr        = Pages::where('id', '<>', $id)->lists('title', 'id');
+			$pagesArr->put('', '-- None --');
 
 			return view('admin.pages.edit', compact('result', 'page_subject', 'categoryArr', 'childDisplayArr', 'pagesArr'));
 		}
@@ -208,7 +210,7 @@
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
-			$page->popup_page_id          = $request->get('popup_page_id',0);
+			$page->popup_page_id          = $request->get('popup_page_id', 0);
 			$page->popup_title            = $request->get('popup_title', NULL);
 			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
