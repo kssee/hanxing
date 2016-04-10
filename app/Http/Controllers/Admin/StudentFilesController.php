@@ -76,12 +76,10 @@
 				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:24480',
 				'title'     => 'required|max:255',
 				'category'  => 'required|max:100',
-				'link'      => 'required_without:file|url|max:255',
 				'published' => 'required|boolean']);
 
 			$sfiles            = new StudentFiles();
 			$sfiles->title     = $request->title;
-			$sfiles->link      = $request->get('link', NULL);
 			$sfiles->published = $request->published;
 			$sfiles->category  = $request->category;
 			$sfiles->cre_by    = auth()->user()->name;
@@ -114,12 +112,10 @@
 				'file'      => 'mimes:jpeg,jpg,png,gif,pdf,docx,doc,txt,xlsx,xls,csv,zip|max:24480',
 				'title'     => 'required|max:255',
 				'category'  => 'required|max:100',
-				'link'      => 'required_without:file|url|max:255',
 				'published' => 'required|boolean']);
 
 			$sfiles            = StudentFiles::findOrFail($id);
 			$sfiles->title     = $request->title;
-			$sfiles->link      = $request->get('link', NULL);
 			$sfiles->published = $request->published;
 			$sfiles->category  = $request->category;
 			$sfiles->upd_by    = auth()->user()->name;
