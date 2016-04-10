@@ -5,11 +5,11 @@
 
 @section('content')
     @include('partials.breadcrumb')
+    @include('flash::message')
 
     <h1>{{trans('custom.student_files')}}</h1>
 
     @if(count($result))
-
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="panel panel-success">

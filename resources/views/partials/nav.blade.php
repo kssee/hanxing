@@ -8,7 +8,7 @@
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                 @if(session()->has('student_logged_in') && session('student_logged_in') == true)
-                    {!! link_to_route('studentLogout',trans('custom.logout_student')) !!}
+                    {!! link_to_route('studentDashboard',trans('custom.student_files')) !!}
                 @else
                     {!! link_to_route('student',trans('custom.student')) !!}
                 @endif

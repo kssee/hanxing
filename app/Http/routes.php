@@ -170,8 +170,8 @@
 		Route::get('online-register', ['as' => 'onlineRegister', 'uses' => 'Front\OnlineRegisterController@index']);
 		Route::post('online-register', ['as' => 'sendRegister', 'uses' => 'Front\OnlineRegisterController@sendMail']);
 
-		Route::get('student-files', ['as' => 'studentFileView', 'uses' => 'Front\StudentFilesController@index']);
-		Route::get('student-files/download/{id}', ['as' => 'studentFileView', 'uses' => 'Front\StudentFilesController@download']);
+		Route::get('student-dashboard', ['as' => 'studentDashboard', 'uses' => 'Front\StudentFilesController@index']);
+		Route::get('student-dashboard/download/{id}', ['as' => 'studentFileView', 'uses' => 'Front\StudentFilesController@download']);
 
 		Route::get('language/{lg}', ['as' => 'setLanguage', 'uses' => 'Front\IndexController@language'])->where('lg', 'en|zh');
 

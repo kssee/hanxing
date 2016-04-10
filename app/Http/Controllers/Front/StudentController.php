@@ -13,7 +13,7 @@
 		{
 			if(session()->has('student_logged_in') && session('student_logged_in') == true)
 			{
-				return redirect()->route('index');
+				return redirect()->route('studentDashboard');
 			}
 			$page_title = trans('custom.student_signin');
 			$username = 'student';
@@ -42,7 +42,7 @@
 				session(['student_logged_in' => true]);
 				Flash::overlay(trans('custom.student_logged_in_txt'), trans('custom.welcome'));
 
-				return redirect()->route('index');
+				return redirect()->route('studentDashboard');
 			}
 			else
 			{
