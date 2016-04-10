@@ -125,7 +125,7 @@
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
-			$page->popup_page_id          = $request->popup_page_id;
+			$page->popup_page_id          = $request->get('popup_page_id',0);
 			$page->popup_title            = $request->get('popup_title', NULL);
 			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
@@ -208,7 +208,7 @@
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
-			$page->popup_page_id          = $request->popup_page_id;
+			$page->popup_page_id          = $request->get('popup_page_id',0);
 			$page->popup_title            = $request->get('popup_title', NULL);
 			$page->popup_title_zh         = $request->get('popup_title_zh', NULL);
 			$page->published              = $request->published;
