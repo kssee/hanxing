@@ -35,7 +35,7 @@
 				foreach($menu_layer1 as $entry)
 				{
 					$sub_menu    = [];
-					$menu_layer2 = Menu::where('parent_id', $entry->id)->where('layer', 2)->orderBy('name')->get();
+					$menu_layer2 = Menu::where('parent_id', $entry->id)->where('layer', 2)->orderBy('layer')->get();
 					foreach($menu_layer2 as $entry_sub)
 					{
 						$sub_menu[] = ['name' => trans()->locale() == 'en' ? $entry_sub->name : $entry_sub->name_zh, 'path' => $entry_sub->path];
