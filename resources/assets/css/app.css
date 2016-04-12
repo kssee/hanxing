@@ -198,7 +198,7 @@ h1 {
     .top-bar .mini-nav a {
       font-size: .9em; }
   .top-bar #nav-logo {
-    width: 180px;
+    width: 220px;
     padding-right: 20px; }
 
 .breadcrumb a {
@@ -747,7 +747,7 @@ h1 {
     top: 10px;
     right: 15px !important; }
   #nav-logo {
-    width: 130px !important; }
+    width: 150px !important; }
   .follow-bar .social-bar i {
     font-size: 2em;
     display: inline-block;

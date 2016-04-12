@@ -41,7 +41,7 @@
 		'let_us_help'              => '让我们帮忙',
 		'campus_life'              => '校园生活',
 		'live_with_us'             => '快加入我们',
-		'apply_now'                => '现在申请',
+		'apply_now'                => '立即报名',
 		'coming_soon'              => '即将发生',
 		'past'                     => '已结束',
 		'student'                  => '学生',
