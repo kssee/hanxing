@@ -74,7 +74,7 @@
 		{
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, ['image'     => 'mimes:jpeg,jpg,png,gif|max:1024',
-			                           'pdf_file'  => 'mimes:pdf|max:24480',
+			                           'pdf_file'  => 'mimes:pdf|max:44480',
 			                           'title'     => 'required|max:100',
 			                           'category'  => 'required|max:100',
 			                           'author'    => 'max:100',
@@ -119,7 +119,7 @@
 		{
 			$request->merge(array_map('trim', $request->all()));
 			$this->validate($request, ['image'     => 'mimes:jpeg,jpg,png,gif|max:1024',
-			                           'pdf_file'  => 'mimes:pdf|max:24480',
+			                           'pdf_file'  => 'mimes:pdf|max:44480',
 			                           'title'     => 'required|max:100',
 			                           'category'  => 'required|max:100',
 			                           'author'    => 'max:100',

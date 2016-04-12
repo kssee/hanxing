@@ -8,10 +8,10 @@ Homestead.json
 /.idea
 composer.lock
 /bower_components
-/public/images/upload
-/public/images/banners
-/public/images/news
-/public/images/pages
-/public/images/showcases
-/public/files/showcases
+/public_html/images/upload
+/public_html/images/banners
+/public_html/images/news
+/public_html/images/pages
+/public_html/images/showcases
+/public_html/files/showcases
 /storage/files/student_files

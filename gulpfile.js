@@ -19,10 +19,10 @@ elixir(function (mix) {
 
         .copy($bowerPath + "bootstrap-css/css/bootstrap.min.css", "resources/assets/css/vendor/bootstrap.css")
         .copy($bowerPath + "bootstrap-css/js/bootstrap.min.js", "resources/assets/js/vendor/bootstrap.js")
-        .copy($bowerPath + "bootstrap-css/fonts", "public/fonts")
+        .copy($bowerPath + "bootstrap-css/fonts", "public_html/fonts")
 
         .copy($bowerPath + "font-awesome/css/font-awesome.min.css", "resources/assets/css/vendor/font-awesome.css")
-        .copy($bowerPath + "font-awesome/fonts", "public/fonts")
+        .copy($bowerPath + "font-awesome/fonts", "public_html/fonts")
 
         .copy($bowerPath + "jquery-colorbox/example4/colorbox.css", "resources/assets/css/vendor/colorbox.css")
         .copy($bowerPath + "jquery-colorbox/jquery.colorbox-min.js", "resources/assets/js/vendor/colorbox.js")
@@ -41,7 +41,7 @@ elixir(function (mix) {
 
         .copy($bowerPath + "footable/css/footable.core.min.css", "resources/assets/css/vendor/footable.css")
         .copy($bowerPath + "footable/dist/footable.min.js", "resources/assets/js/vendor/footable.js")
-        .copy($bowerPath + "footable/css/fonts", "public/css/fonts")
+        .copy($bowerPath + "footable/css/fonts", "public_html/css/fonts")
 
         .copy($bowerPath + "raphael/raphael-min.js", "resources/assets/js/vendor/raphael.js")
         .copy($bowerPath + "notie/notie.js", "resources/assets/js/vendor/notie.js")
@@ -49,14 +49,14 @@ elixir(function (mix) {
         .copy($bowerPath + "select2/dist/js/select2.min.js", "resources/assets/js/vendor/select2.js")
         .copy($bowerPath + "select2/dist/css/select2.min.css", "resources/assets/css/vendor/select2.css")
 
-        .copy($bowerPath + "ckeditor/adapters", "public/ckeditor/adapters")
-        .copy($bowerPath + "ckeditor/lang", "public/ckeditor/lang")
-        .copy($bowerPath + "ckeditor/plugins", "public/ckeditor/plugins")
-        .copy($bowerPath + "ckeditor/skins", "public/ckeditor/skins")
-        .copy($bowerPath + "ckeditor/ckeditor.js", "public/ckeditor/ckeditor.js")
-        .copy($bowerPath + "ckeditor/config.js", "public/ckeditor/config.js")
-        .copy($bowerPath + "ckeditor/contents.css", "public/ckeditor/contents.css")
-        .copy($bowerPath + "ckeditor/styles.js", "public/ckeditor/styles.js")
+        .copy($bowerPath + "ckeditor/adapters", "public_html/ckeditor/adapters")
+        .copy($bowerPath + "ckeditor/lang", "public_html/ckeditor/lang")
+        .copy($bowerPath + "ckeditor/plugins", "public_html/ckeditor/plugins")
+        .copy($bowerPath + "ckeditor/skins", "public_html/ckeditor/skins")
+        .copy($bowerPath + "ckeditor/ckeditor.js", "public_html/ckeditor/ckeditor.js")
+        .copy($bowerPath + "ckeditor/config.js", "public_html/ckeditor/config.js")
+        .copy($bowerPath + "ckeditor/contents.css", "public_html/ckeditor/contents.css")
+        .copy($bowerPath + "ckeditor/styles.js", "public_html/ckeditor/styles.js")
 
         .styles([
             'vendor/normalize.css',
@@ -66,7 +66,7 @@ elixir(function (mix) {
             'vendor/footable.css',
             'vendor/colorbox.css',
             'app.css'
-        ], 'public/css/app.css')
+        ], 'public_html/css/app.css')
 
         .styles([
             'vendor/normalize.css',
@@ -79,7 +79,7 @@ elixir(function (mix) {
             'vendor/morrisjs.css',
             'vendor/select2.css',
             'admin.css'
-        ], 'public/css/admin.css')
+        ], 'public_html/css/admin.css')
 
         .scripts([
             'vendor/jquery.js',
@@ -90,7 +90,7 @@ elixir(function (mix) {
             'vendor/footable.js',
             'vendor/jquery-validation.js',
             'appNav.js'
-        ], 'public/js/app.js')
+        ], 'public_html/js/app.js')
 
         .scripts([
             'vendor/jquery.js',
@@ -106,6 +106,6 @@ elixir(function (mix) {
             'vendor/notie.js',
             'vendor/select2.js',
             'adminScript.js'
-        ], 'public/js/admin.js')
+        ], 'public_html/js/admin.js')
     ;
 });

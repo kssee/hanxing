@@ -35,32 +35,44 @@
 			$programmesList = collect($programmesList);
 
 			// Others bar
-			$othersList[] = [
-				'title'          => trans('custom.why_choose_us'),
-				'title_zh'       => trans('custom.why_choose_us'),
-				'slug'           => 'why-hanxing',
-				'highlight'      => '',
-				'txt'            => trans('custom.our_reputation'),
-				'path_thumbnail' => 'images/t.jpg',
-			];
+			$why_hanxing  = Pages::where('slug', 'why-hanxing')->where('published', 1)->first();
+			$scholarships = Pages::where('slug', 'scholarships-study-loan-ptptn')->where('published', 1)->first();
+			$campus_life  = Pages::where('slug', 'campus-life')->where('published', 1)->first();
+			if( ! is_null($why_hanxing))
+			{
+				$othersList[] = [
+					'title'          => trans('custom.why_choose_us'),
+					'title_zh'       => trans('custom.why_choose_us'),
+					'slug'           => 'why-hanxing',
+					'highlight'      => '',
+					'txt'            => trans('custom.our_reputation'),
+					'path_thumbnail' => $why_hanxing->path_thumbnail,
+				];
+			}
 
-			$othersList[] = [
-				'title'          => trans('custom.scholarship'),
-				'title_zh'       => trans('custom.scholarship'),
-				'slug'           => 'scholarships-study-loan-ptptn',
-				'highlight'      => '',
-				'txt'            => trans('custom.let_us_help'),
-				'path_thumbnail' => 'images/t.jpg',
-			];
+			if( ! is_null($scholarships))
+			{
+				$othersList[] = [
+					'title'          => trans('custom.scholarship'),
+					'title_zh'       => trans('custom.scholarship'),
+					'slug'           => 'scholarships-study-loan-ptptn',
+					'highlight'      => '',
+					'txt'            => trans('custom.let_us_help'),
+					'path_thumbnail' => $scholarships->path_thumbnail,
+				];
+			}
 
-			$othersList[] = [
-				'title'          => trans('custom.campus_life'),
-				'title_zh'       => trans('custom.campus_life'),
-				'slug'           => 'campus-life',
-				'highlight'      => '',
-				'txt'            => trans('custom.live_with_us'),
-				'path_thumbnail' => 'images/t.jpg',
-			];
+			if( ! is_null($campus_life))
+			{
+				$othersList[] = [
+					'title'          => trans('custom.campus_life'),
+					'title_zh'       => trans('custom.campus_life'),
+					'slug'           => 'campus-life',
+					'highlight'      => '',
+					'txt'            => trans('custom.live_with_us'),
+					'path_thumbnail' => $campus_life->path_thumbnail,
+				];
+			}
 
 			$othersList[] = [
 				'special' => true,
