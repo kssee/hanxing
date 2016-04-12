@@ -77,6 +77,7 @@
 			                           'pdf_file'  => 'mimes:pdf|max:24480',
 			                           'title'     => 'required|max:100',
 			                           'category'  => 'required|max:100',
+			                           'author'    => 'max:100',
 			                           'link'      => 'url|max:255',
 			                           'published' => 'required|boolean']);
 
@@ -85,6 +86,7 @@
 			$sshowcase->link      = $request->get('link', NULL);
 			$sshowcase->published = $request->published;
 			$sshowcase->category  = $request->category;
+			$sshowcase->author    = $request->get('author', NULL);
 			$sshowcase->cre_by    = auth()->user()->name;
 			$sshowcase->upd_by    = auth()->user()->name;
 
@@ -120,6 +122,7 @@
 			                           'pdf_file'  => 'mimes:pdf|max:24480',
 			                           'title'     => 'required|max:100',
 			                           'category'  => 'required|max:100',
+			                           'author'    => 'max:100',
 			                           'link'      => 'url|max:255',
 			                           'published' => 'required|boolean']);
 
@@ -128,6 +131,7 @@
 			$sshowcase->link      = $request->get('link', NULL);
 			$sshowcase->published = $request->published;
 			$sshowcase->category  = $request->category;
+			$sshowcase->author    = $request->get('author', NULL);
 			$sshowcase->upd_by    = auth()->user()->name;
 
 			if($request->has('image'))

@@ -131,6 +131,7 @@
 		'popup_page'               => '跳出页面',
 		'popup_page_title'         => '跳出页面标题',
 		'popup_page_chinese_name'  => '跳出页面中文标题',
+		'author'                   => '作家',
 
 		'user_list_title'          => '用户',
 		'user_add_title'           => '新建用户',

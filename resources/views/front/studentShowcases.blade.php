@@ -18,21 +18,24 @@
 
     @if(count($result))
         @if($type == 'films_mv')
-            @foreach ($result->chunk(4) as $row)
+            @foreach ($result->chunk(6) as $row)
                 <div class="highlight-box row">
                     @foreach ($row as $entry)
-                        <div class="col-sm-3">
-                            <div class="item item-black">
+                        <div class="col-sm-2">
+                            <div class="item item-mv">
                                 @if(!is_null($entry['path_thumbnail']) && !empty($entry['path_thumbnail']))
                                     <a href="{{url($entry['link'])}}" class="iframe" title="{{$entry['title']}}">
                                         <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image"/>
                                     </a>
                                 @endif
                                 <b>
-                                    <a href="{{url($entry['link'])}}" class="iframe films_link" title="{{$entry['title']}}">
+                                    <a href="{{url($entry['link'])}}" class="iframe films-link" title="{{$entry['title']}}">
                                         {{str_limit($entry['title'],30)}}
                                     </a>
                                 </b>
+                                @if(!is_null($entry['author']))
+                                    <span class="films-author">By: {{$entry['author']}}</span>
+                                @endif
                             </div>
                         </div>
                     @endforeach

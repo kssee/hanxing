@@ -131,6 +131,7 @@
 		'popup_page'               => 'Popup Page',
 		'popup_page_title'         => 'Popup Page Title',
 		'popup_page_chinese_name'  => 'Popup Page Chinese Title',
+		'author'                   => 'Author',
 
 		'user_list_title'          => 'Users',
 		'user_add_title'           => 'Add New User',

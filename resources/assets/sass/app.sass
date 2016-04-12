@@ -15,13 +15,6 @@ a
     color: #000
 h1
   font-family: $style-font
-.films_link
-  color: #fff
-  display: inline-block
-  margin: 5px
-  font-family: $style-font
-  &:hover
-    color: $main-color
 .body-content
   padding-bottom: 30px
   padding-top: 10px
@@ -171,7 +164,7 @@ h1
     font-size: 1.2em
   p
     color: $dark-gray-color-2
-  .col-sm-3
+  .col-sm-3, .col-sm-2
     padding: 5px 5px 10px
   .item-light
     background-color: #eee
@@ -234,6 +227,23 @@ h1
     p
       padding-top: 3px
       line-height: 1.1em
+  .item-mv
+    background-color: #f9f9f9
+    border: 1px solid #eee
+    padding: 5px
+    img
+      padding: 0
+    .films-link
+      display: block
+      text-align: center
+      color: #000000
+      margin-top: 5px
+      &:hover
+        color: $main-color
+    .films-author
+      font-size: .8em
+      color: #aaaaaa
+      font-weight: 100
 .activity-date
   color: $gray-color
   font-style: italic

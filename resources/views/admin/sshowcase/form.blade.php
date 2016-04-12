@@ -18,6 +18,13 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('author',trans('custom.author'),['class'=>'control-label col-sm-3']) !!}
+    <div class="col-sm-9">
+        {!! Form::text('author',old('author'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('published',trans('custom.publish') . ' ?',['class'=>'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         <label>{!! Form::radio('published',1,true)!!} Yes</label> &nbsp; <label>{!! Form::radio('published',0)!!} No</label>
@@ -50,7 +57,7 @@
 @endif
 
 <div class="form-group">
-    {!! Form::label('image','Image (300px X 120px)',['class'=>'control-label col-sm-3']) !!}
+    {!! Form::label('image','Image (300px X 200px)',['class'=>'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         {!! Form::file('image',['class'=>'form-control input-sm input-required'])!!}
     </div>
