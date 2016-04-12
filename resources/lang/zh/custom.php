@@ -82,7 +82,7 @@
 		'han_xin_bao'              => '韩新报',
 		'why_hanxing'              => '为什么选择我们',
 		'scholarship_loan'         => '奖贷学金',
-		'partner_universities'     => '合作伙伴',
+		'partner_universities'     => '国际姐妹校',
 
 
 		'email'                    => '电邮',
