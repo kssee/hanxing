@@ -73,22 +73,26 @@
 		public function store(Request $request)
 		{
 			$request->merge(array_map('trim', $request->all()));
-			$this->validate($request, ['image'     => 'mimes:jpeg,jpg,png,gif|max:1024',
-			                           'pdf_file'  => 'mimes:pdf|max:44480',
-			                           'title'     => 'required|max:100',
-			                           'category'  => 'required|max:100',
-			                           'author'    => 'max:100',
-			                           'link'      => 'url|max:255',
-			                           'published' => 'required|boolean']);
+			$this->validate($request, ['image'          => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'pdf_file'       => 'mimes:pdf|max:44480',
+			                           'title'          => 'required|max:100',
+			                           'category'       => 'required|max:100',
+			                           'subcategory'    => 'max:100',
+			                           'subcategory_zh' => 'required_with:subcategory|max:100',
+			                           'author'         => 'max:100',
+			                           'link'           => 'url|max:255',
+			                           'published'      => 'required|boolean']);
 
-			$sshowcase            = new StudentShowcases();
-			$sshowcase->title     = $request->title;
-			$sshowcase->link      = $request->get('link', NULL);
-			$sshowcase->published = $request->published;
-			$sshowcase->category  = $request->category;
-			$sshowcase->author    = $request->get('author', NULL);
-			$sshowcase->cre_by    = auth()->user()->name;
-			$sshowcase->upd_by    = auth()->user()->name;
+			$sshowcase                 = new StudentShowcases();
+			$sshowcase->title          = $request->title;
+			$sshowcase->link           = $request->get('link', NULL);
+			$sshowcase->published      = $request->published;
+			$sshowcase->category       = $request->category;
+			$sshowcase->subcategory    = $request->get('subcategory', NULL);
+			$sshowcase->subcategory_zh = $request->get('subcategory_zh', NULL);
+			$sshowcase->author         = $request->get('author', NULL);
+			$sshowcase->cre_by         = auth()->user()->name;
+			$sshowcase->upd_by         = auth()->user()->name;
 
 			if($request->has('image'))
 			{
@@ -118,21 +122,25 @@
 		public function update(Request $request, $id)
 		{
 			$request->merge(array_map('trim', $request->all()));
-			$this->validate($request, ['image'     => 'mimes:jpeg,jpg,png,gif|max:1024',
-			                           'pdf_file'  => 'mimes:pdf|max:44480',
-			                           'title'     => 'required|max:100',
-			                           'category'  => 'required|max:100',
-			                           'author'    => 'max:100',
-			                           'link'      => 'url|max:255',
-			                           'published' => 'required|boolean']);
+			$this->validate($request, ['image'          => 'mimes:jpeg,jpg,png,gif|max:1024',
+			                           'pdf_file'       => 'mimes:pdf|max:44480',
+			                           'title'          => 'required|max:100',
+			                           'category'       => 'required|max:100',
+			                           'subcategory'    => 'max:100',
+			                           'subcategory_zh' => 'required_with:subcategory|max:100',
+			                           'author'         => 'max:100',
+			                           'link'           => 'url|max:255',
+			                           'published'      => 'required|boolean']);
 
-			$sshowcase            = StudentShowcases::findOrFail($id);
-			$sshowcase->title     = $request->title;
-			$sshowcase->link      = $request->get('link', NULL);
-			$sshowcase->published = $request->published;
-			$sshowcase->category  = $request->category;
-			$sshowcase->author    = $request->get('author', NULL);
-			$sshowcase->upd_by    = auth()->user()->name;
+			$sshowcase                 = StudentShowcases::findOrFail($id);
+			$sshowcase->title          = $request->title;
+			$sshowcase->link           = $request->get('link', NULL);
+			$sshowcase->published      = $request->published;
+			$sshowcase->category       = $request->category;
+			$sshowcase->subcategory    = $request->get('subcategory', NULL);
+			$sshowcase->subcategory_zh = $request->get('subcategory_zh', NULL);
+			$sshowcase->author         = $request->get('author', NULL);
+			$sshowcase->upd_by         = auth()->user()->name;
 
 			if($request->has('image'))
 			{

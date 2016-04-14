@@ -34,7 +34,7 @@
 @endif
 
 <div class="form-group">
-    {!! Form::label('image','Banner (1320 X 260)',['class'=>'control-label col-sm-2']) !!}
+    {!! Form::label('image','Banner (1500 X 300)',['class'=>'control-label col-sm-2']) !!}
     <div class="col-sm-10">
         {!! Form::file('image',['class'=>'form-control input-sm input-required'])!!}
     </div>

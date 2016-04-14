@@ -121,8 +121,13 @@
 			                           'child_display_category' => 'in:0,1,2,3',
 			                           'page_content'           => 'required']);
 
+			$slug = str_slug($request->title);
+			if(empty($slug))
+			{
+				return redirect()->back()->withErrors(['title' => 'Invalid Title'])->withInput($request->all());
+			}
 			$page                         = new Pages();
-			$page->slug                   = str_slug($request->title);
+			$page->slug                   = $slug;
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;
@@ -205,8 +210,14 @@
 			                           'child_display_category' => 'in:0,1,2,3',
 			                           'page_content'           => 'required']);
 
+			$slug = str_slug($request->title);
+			if(empty($slug))
+			{
+				return redirect()->back()->withErrors(['title' => 'Invalid Title'])->withInput($request->all());
+			}
+
 			$page                         = Pages::findOrFail($id);
-			$page->slug                   = str_slug($request->title);
+			$page->slug                   = $slug;
 			$page->title                  = $request->title;
 			$page->title_zh               = $request->title_zh;
 			$page->highlight              = $request->highlight;

@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-4 contact-info-box">
             <div class="header">
-                {{config('system_info')->name}}
+                {{trans('custom.office_hour')}}
             </div>
             <div class="content">
                 {!! nl2br(config('system_info')->sticker_content) !!}

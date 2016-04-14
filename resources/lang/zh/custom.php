@@ -54,6 +54,7 @@
 		'application_form'         => '申请表格',
 		'wrong_password'           => '密码错误',
 		'student_logged_in_txt'    => '祝你有个完美的一天',
+		'office_hour'              => '办公时间',
 
 		'dashboard'                => '仪表板',
 		'users'                    => '用户',
@@ -77,7 +78,7 @@
 		'intake'                   => '入学',
 		'student_showcases'        => '学生作品',
 		'student_files'            => '下载专区',
-		'films_mv'                 => '短片',
+		'films_mv'                 => '毕业影展',
 		'chuan_bao_xue_ren'        => '传播学人',
 		'han_xin_bao'              => '韩新报',
 		'why_hanxing'              => '为什么选择我们',
@@ -132,6 +133,8 @@
 		'popup_page_title'         => '跳出页面标题',
 		'popup_page_chinese_name'  => '跳出页面中文标题',
 		'author'                   => '作家',
+		'subcategory'              => '类别',
+		'subcategory_zh'           => '中文类别',
 
 		'user_list_title'          => '用户',
 		'user_add_title'           => '新建用户',

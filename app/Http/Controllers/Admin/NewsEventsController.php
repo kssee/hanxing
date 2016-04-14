@@ -122,8 +122,14 @@
 				'image'         => 'mimes:jpeg,jpg,png,gif|max:1024',
 				'page_content'  => 'required']);
 
+			$slug = str_slug($request->title);
+			if(empty($slug))
+			{
+				return redirect()->back()->withErrors(['title' => 'Invalid Title'])->withInput($request->all());
+			}
+
 			$news_event                = new NewsEvents();
-			$news_event->slug          = str_slug($request->title);
+			$news_event->slug          = $slug;
 			$news_event->title         = $request->title;
 			$news_event->title_zh      = $request->title_zh;
 			$news_event->category      = $request->category;
@@ -185,8 +191,14 @@
 				'image'         => 'mimes:jpeg,jpg,png,gif|max:1024',
 				'page_content'  => 'required']);
 
+			$slug = str_slug($request->title);
+			if(empty($slug))
+			{
+				return redirect()->back()->withErrors(['title' => 'Invalid Title'])->withInput($request->all());
+			}
+
 			$news_event                = NewsEvents::findOrFail($id);
-			$news_event->slug          = str_slug($request->title);
+			$news_event->slug          = $slug;
 			$news_event->title         = $request->title;
 			$news_event->title_zh      = $request->title_zh;
 			$news_event->category      = $request->category;

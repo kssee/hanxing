@@ -16,7 +16,7 @@
 					$type              = 'chuan_bao_xue_ren';
 					$active_breadcrumb = trans('custom.chuan_bao_xue_ren');
 					break;
-				case 'han-xin-bao':
+				case 'han-xi-bao':
 					$type              = 'han_xin_bao';
 					$active_breadcrumb = trans('custom.han_xin_bao');
 					break;
@@ -25,20 +25,38 @@
 					$active_breadcrumb = trans('custom.films_mv');
 					break;
 			}
-
+			$sub             = Input::get('sub', NULL);
 			$page            = Input::get('page', '1');
-			$record_per_page = 16;
+			$record_per_page = 18;
 			$add_order       = ($page - 1) * $record_per_page;
-			$result          = StudentShowcases::where('category', $type)
+			$query           = StudentShowcases::where('category', $type)
 			                                   ->where('published', 1)
-			                                   ->orderBy('title', 'desc')
-			                                   ->paginate($record_per_page);
+			                                   ->orderBy('title', 'desc');
+			if( ! is_null($sub))
+			{
+				$query->where('subcategory', $sub);
+			}
+			$result = $query->paginate($record_per_page);
 
 			$page_title = trans('custom.student_showcases');
 
 			$breadcrumb_overwrite['link'][] = [trans('custom.home') => route('index')];
 			$breadcrumb_overwrite['active'] = $active_breadcrumb;
 
-			return view('front.studentShowcases', compact('result', 'type', 'add_order', 'page_title', 'breadcrumb_overwrite'));
+			$subcategory_query = StudentShowcases::where('category', $type)
+			                                     ->where('published', 1)
+			                                     ->whereNotNull('subcategory')
+			                                     ->groupBy('subcategory');
+
+			if(trans()->locale() == 'en')
+			{
+				$subcategory = $subcategory_query->lists('subcategory', 'subcategory');
+			}
+			else
+			{
+				$subcategory = $subcategory_query->lists('subcategory_zh', 'subcategory');
+			}
+
+			return view('front.studentShowcases', compact('result', 'type', 'add_order', 'page_title', 'breadcrumb_overwrite', 'input', 'sub', 'subcategory'));
 		}
 	}

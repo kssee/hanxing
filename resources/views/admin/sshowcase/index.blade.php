@@ -11,11 +11,12 @@
             <tr>
                 <th width="20px"></th>
                 <th width="80px"></th>
-                <th width="150px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
+                <th width="120px">{!!sortingLink(trans('custom.created_date'),'a','desc')!!}</th>
                 <th>{{trans('custom.category')}}</th>
+                <th>{{trans('custom.subcategory')}}</th>
                 <th>{!!sortingLink(trans('custom.title'),'b')!!}</th>
                 <th>{{trans('custom.link')}}</th>
-                <th width="160px">{{trans('custom.image')}}</th>
+                <th>{{trans('custom.image')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -36,6 +37,7 @@
                     </td>
                     <td>{{ $entry->created_at->toFormattedDateString() }}</td>
                     <td>{{ $entry->category }}</td>
+                    <td>{{ $entry->subcategory }}</td>
                     <td>{{ is_null($entry->title)?"-":$entry->title }}</td>
                     <td>
                         @if(!is_null($entry->path_file))
@@ -48,7 +50,7 @@
                     </td>
                     <td>
                         @if(!is_null($entry->path_thumbnail))
-                            <img src="{{ asset($entry->path_thumbnail) }}" width="150px"/>
+                            <img src="{{ asset($entry->path_thumbnail) }}" width="100px"/>
                         @endif
                     </td>
                 </tr>

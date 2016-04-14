@@ -11,6 +11,20 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('subcategory',trans('custom.subcategory'),['class'=>'control-label col-sm-3']) !!}
+    <div class="col-sm-9">
+        {!! Form::text('subcategory',old('subcategory'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('subcategory_zh',trans('custom.subcategory_zh'),['class'=>'control-label col-sm-3']) !!}
+    <div class="col-sm-9">
+        {!! Form::text('subcategory_zh',old('subcategory_zh'),['class'=>'form-control input-sm'])!!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('link',trans('custom.link'),['class'=>'control-label col-sm-3']) !!}
     <div class="col-sm-9">
         {!! Form::text('link',old('link'),['class'=>'form-control input-sm','placeholder'=>'http(s)://'])!!}
