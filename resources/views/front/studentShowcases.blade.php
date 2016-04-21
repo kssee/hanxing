@@ -36,12 +36,12 @@
                     <div class="col-sm-2">
                         <div class="item item-mv">
                             @if(!is_null($entry['path_thumbnail']) && !empty($entry['path_thumbnail']))
-                                <a href="{{url($entry['link'])}}" {{$type == 'films_mv' ? 'class="iframe"' : 'target="_blank"'}} title="{{$entry['title']}}">
+                                <a href="{{url($entry['link'])}}" {!! $type == 'films_mv' ? 'class="iframe"' : 'target="_blank"'!!} title="{{$entry['title']}}">
                                     <img src="{{asset($entry['path_thumbnail'])}}" class="responsive-image"/>
                                 </a>
                             @endif
                             <b>
-                                <a href="{{url($entry['link'])}}" {{$type == 'films_mv' ? 'class="iframe films-link"' : 'class="iframe" target="_blank"'}} title="{{$entry['title']}}">
+                                <a href="{{url($entry['link'])}}" {!! $type == 'films_mv' ? 'class="iframe films-link"' : 'class="films-link" target="_blank"'!!} title="{{$entry['title']}}">
                                     {{str_limit($entry['title'],30)}}
                                 </a>
                             </b>
