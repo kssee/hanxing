@@ -46,7 +46,7 @@
                                 </a>
                             </b>
                             @if(!is_null($entry['author']) && !empty($entry['author']))
-                                <br /><span class="films-author">By: {{$entry['author']}}</span>
+                                <span class="films-author">By: {{$entry['author']}}</span>
                             @endif
                         </div>
                     </div>
