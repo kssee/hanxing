@@ -6,7 +6,7 @@
 @section('content')
     @include('flash::message')
     @if(count($programmesList))
-        <div class="container-fluid">
+        <div class="container">
             <div class="highlight-box row">
                 @foreach ($programmesList->chunk(4) as $row)
                     @foreach ($row as $entry)
@@ -68,7 +68,7 @@
     </div>
 
     @if(isset($othersList) && count($othersList))
-        <div class="container-fluid">
+        <div class="container">
             <div class="highlight-box row">
                 @foreach($othersList as $entry)
                     <div class="col-sm-3">

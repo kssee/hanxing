@@ -17,7 +17,7 @@
 		 */
 		public function __construct()
 		{
-			$this->middleware('permission:admin_users');
+			$this->middleware('permission:admin_authorization');
 		}
 
 		public function index(Request $request)

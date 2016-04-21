@@ -41,7 +41,7 @@
                     <li>
                         <a href="#"><i class="fa fa-key fa-fw"></i>&nbsp;{{trans('custom.authorization')}}<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            {!! navLinkWithPermission('admin_users','admin.user.index',trans('custom.users')) !!}
+                            {!! navLinkWithPermission('admin_authorization','admin.user.index',trans('custom.users')) !!}
                             {!! navLinkWithPermission('admin_authorization','admin.permission.index',trans('custom.permissions')) !!}
                             {!! navLinkWithPermission('admin_authorization','admin.role.index',trans('custom.role_group')) !!}
                         </ul>

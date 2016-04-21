@@ -80,7 +80,7 @@
 		'student_files'            => 'Student Download',
 		'films_mv'                 => 'Graduation Films',
 		'chuan_bao_xue_ren'        => '传播学人',
-		'han_xin_bao'              => '韩新报',
+		'han_xin_bao'              => '韩曦报',
 		'why_hanxing'              => 'Why HANXING?',
 		'scholarship_loan'         => 'Scholarship and Loan',
 		'partner_universities'     => 'Partner Universities',

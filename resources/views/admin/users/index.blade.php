@@ -35,9 +35,9 @@
 
                         &nbsp;
 
-                        {!! iconLinkWithPermission('admin_users','admin.user.edit','fa-pencil-square-o',trans('custom.edit'),['users'=>$entry->id]) !!}
+                        {!! iconLinkWithPermission('admin_authorization','admin.user.edit','fa-pencil-square-o',trans('custom.edit'),['users'=>$entry->id]) !!}
                         @if(auth()->user()->email != $entry->email)
-                            {!! iconLinkWithPermission('admin_users','admin.user.destroy','fa-trash color-danger',trans('custom.destroy'),['users'=>$entry->id],[],true) !!}
+                            {!! iconLinkWithPermission('admin_authorization','admin.user.destroy','fa-trash color-danger',trans('custom.destroy'),['users'=>$entry->id],[],true) !!}
                         @else
                             <i class="fa fa-trash fa-lg color-gray curson-disable"></i>
                         @endif
