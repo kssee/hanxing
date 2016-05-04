@@ -328,7 +328,7 @@
 			}
 			else
 			{
-				$from = \Carbon\Carbon::now()->subDays(5)->startOfDay();
+				$from = \Carbon\Carbon::now()->subYear()->startOfDay();
 			}
 
 		}

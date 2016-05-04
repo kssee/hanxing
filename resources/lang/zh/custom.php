@@ -80,7 +80,7 @@
 		'student_files'            => '下载专区',
 		'films_mv'                 => '毕业影展',
 		'chuan_bao_xue_ren'        => '传播学人',
-		'han_xin_bao'              => '韩曦报',
+		'han_xi_bao'               => '韩曦报',
 		'why_hanxing'              => '为什么选择我们',
 		'scholarship_loan'         => '奖贷学金',
 		'partner_universities'     => '国际姐妹校',

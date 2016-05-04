@@ -17,8 +17,8 @@
 					$active_breadcrumb = trans('custom.chuan_bao_xue_ren');
 					break;
 				case 'han-xi-bao':
-					$type              = 'han_xin_bao';
-					$active_breadcrumb = trans('custom.han_xin_bao');
+					$type              = 'han_xi_bao';
+					$active_breadcrumb = trans('custom.han_xi_bao');
 					break;
 				default :
 					$type              = 'films_mv';

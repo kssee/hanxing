@@ -9,8 +9,8 @@
     <h1>
         @if($type == 'chuan_bao_xue_ren')
             {{trans('custom.chuan_bao_xue_ren')}}
-        @elseif($type == 'han_xin_bao')
-            {{trans('custom.han_xin_bao')}}
+        @elseif($type == 'han_xi_bao')
+            {{trans('custom.han_xi_bao')}}
         @else
             {{trans('custom.films_mv')}}
         @endif
@@ -29,7 +29,7 @@
     </h1>
 
     @if(count($result))
-        {{--@if($type == 'films_mv')--}}
+
         @foreach ($result->chunk(6) as $row)
             <div class="highlight-box row">
                 @foreach ($row as $entry)
@@ -53,37 +53,6 @@
                 @endforeach
             </div>
         @endforeach
-        {{--@else--}}
-        {{--<div class="row">--}}
-        {{--<div class="col-sm-8 col-sm-offset-2">--}}
-        {{--<div class="panel panel-success">--}}
-        {{--<table class="table">--}}
-        {{--<thead>--}}
-        {{--<tr>--}}
-        {{--<th width="10px">#</th>--}}
-        {{--<th>{{trans('custom.title')}}</th>--}}
-        {{--<th></th>--}}
-        {{--</tr>--}}
-        {{--</thead>--}}
-        {{--<tbody>--}}
-        {{--@foreach ($result as $key=>$entry)--}}
-        {{--<tr>--}}
-        {{--<td>{{++$key + $add_order}}</td>--}}
-        {{--<td>{{$entry->title}}</td>--}}
-        {{--<td align="right">--}}
-        {{--<a href="{{asset($entry->path_file)}}" target="_blank"><i class="fa fa-download color-main"></i></a>--}}
-        {{--</td>--}}
-        {{--</tr>--}}
-        {{--@endforeach--}}
-        {{--</tbody>--}}
-        {{--</table>--}}
-
-        {{--</div>--}}
-
-        {{--</div>--}}
-        {{--</div>--}}
-
-        {{--@endif--}}
 
         @if(isset($paginate_appends))
             {!! $result->appends($paginate_appends)->render() !!}

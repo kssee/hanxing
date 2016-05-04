@@ -96,7 +96,7 @@
 
 			if($request->has('image'))
 			{
-				$sshowcase->path_thumbnail = $this->save_image($request->file('image'));
+				$sshowcase->path_thumbnail = $this->save_image($request->file('image'),$request->category);
 			}
 
 			if($request->has('pdf_file'))
@@ -145,7 +145,7 @@
 			if($request->has('image'))
 			{
 				File::delete($sshowcase->path_thumbnail);
-				$sshowcase->path_thumbnail = $this->save_image($request->file('image'));
+				$sshowcase->path_thumbnail = $this->save_image($request->file('image'),$request->category);
 			}
 
 			if($request->has('pdf_file'))
@@ -172,7 +172,7 @@
 			return redirect()->route('admin.sshowcase.index');
 		}
 
-		private function save_image($image)
+		private function save_image($image, $category)
 		{
 			$timestamp   = time();
 			$path        = env('STUDENT_SHOWCASE_THUMBNAIL_PATH');
@@ -180,7 +180,17 @@
 			$image_path  = $path . '/' . $img_dt_name;
 
 			$image->move($path, $img_dt_name);
-			Image::make($image_path)->fit(env('STUDENT_SHOWCASE_THUMBNAIL_WIDTH'), env('STUDENT_SHOWCASE_THUMBNAIL_HEIGHT'))->save();
+
+			if($category == 'films_mv')
+			{
+				$height = env('STUDENT_SHOWCASE_THUMBNAIL_HEIGHT');
+			}
+			else
+			{
+				$height = env('STUDENT_SHOWCASE_THUMBNAIL_HEIGHT_LONG');
+			}
+
+			Image::make($image_path)->fit(env('STUDENT_SHOWCASE_THUMBNAIL_WIDTH'), $height)->save();
 
 			return $image_path;
 		}
@@ -201,7 +211,7 @@
 		{
 			$data = [
 				'films_mv'          => 'Films/ MV',
-				'han_xin_bao'       => 'HanxiBao',
+				'han_xi_bao'       => 'HanxiBao',
 				'chuan_bao_xue_ren' => 'Chuan Bo Xue Ren',
 			];
 
